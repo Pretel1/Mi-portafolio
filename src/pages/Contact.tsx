@@ -55,7 +55,7 @@ export default function Contact() {
     // Reemplaza el número con el número real de WhatsApp en formato internacional (sin el '+')
     // Ejemplo: 51935738276 (51 es código de Perú)
     const phone = '51935738276'; 
-    const message = 'Hola Dany, vi tu portfolio y me gustaría conectar contigo.';
+    const message = 'Hola, Dany. Vi tu portafolio y me gustaría ponerme en contacto contigo.';
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
