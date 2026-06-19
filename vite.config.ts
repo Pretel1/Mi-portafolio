@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import { resolve } from 'path';
 
 export default defineConfig({
+  // Configuración para el despliegue en GitHub Pages
   base: '/Mi-portafolio/',
   plugins: [
     react(),
