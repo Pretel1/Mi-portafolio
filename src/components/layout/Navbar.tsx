@@ -168,17 +168,22 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button (Cyberpunk Keycap style) */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-neon-cyan hover:text-white transition-colors focus:outline-none z-50 relative"
+            className={`
+              md:hidden p-2.5 text-neon-cyan transition-all duration-300 focus:outline-none z-50 relative
+              border border-neon-cyan/30 bg-dark-950/60 rounded-md
+              hover:border-neon-cyan/60 hover:bg-neon-cyan/10 hover:shadow-[0_0_15px_rgba(0,242,254,0.3)]
+              ${isOpen ? 'border-neon-cyan bg-neon-cyan/15 shadow-[0_0_15px_rgba(0,242,254,0.3)] text-white' : ''}
+            `}
             aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
           >
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               {isOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M6 18L18 6M6 6l12 12" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M4 6h16M4 12h16m-7 6h7" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               )}
             </svg>
           </button>
