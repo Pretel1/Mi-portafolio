@@ -69,7 +69,7 @@ export default function About() {
             </div>
             <div className="flex-1 w-full bg-dark-950 flex justify-center items-center overflow-hidden">
               <img
-                src="/images/profile.png"
+                src={`${import.meta.env.BASE_URL}images/profile.png`}
                 alt="Dany Jose Pretel Huamanvilca"
                 className="w-full h-full object-contain object-top group-hover:scale-105 transition-all duration-700 p-2"
                 loading="lazy"

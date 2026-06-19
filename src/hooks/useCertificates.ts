@@ -38,7 +38,7 @@ export function useCertificates() {
 
   // BUGFIX: Changed parameter to accept a string filename instead of a Certificate object
   const getCertUrl = useCallback((filename: string) => {
-    return `/certificates/${filename}`;
+    return `${import.meta.env.BASE_URL}certificates/${filename}`;
   }, []);
 
   return {
