@@ -21,12 +21,13 @@ export default function CertificateModal({
   const modalRef = useRef<HTMLDivElement>(null);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [isBlurred, setIsBlurred] = useState(false);
 
-  // Minimum swipe distance
+  // Minimum swipe distance for mobile navigation
   const minSwipeDistance = 50;
 
   const onTouchStart = (e: React.TouchEvent) => {
-    setTouchEnd(null); // otherwise the swipe is fired even with usual touch events
+    setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientX);
   };
 
@@ -48,17 +49,84 @@ export default function CertificateModal({
     }
   };
 
-  // Handle keyboard navigation & escape
+  // Anti-Screenshot: Detect when window loses focus and blur content
+  useEffect(() => {
+    const handleBlur = () => {
+      setIsBlurred(true);
+    };
+    const handleFocus = () => {
+      setIsBlurred(false);
+    };
+
+    window.addEventListener('blur', handleBlur);
+    window.addEventListener('focus', handleFocus);
+
+    return () => {
+      window.removeEventListener('blur', handleBlur);
+      window.removeEventListener('focus', handleFocus);
+    };
+  }, []);
+
+  // Handle keyboard navigation, escape, and shortcut blocking
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!isOpen) return;
+
+      // Close modal
       if (e.key === 'Escape') onClose();
+
+      // Navigation
       if (e.key === 'ArrowRight') onNavigate('next');
       if (e.key === 'ArrowLeft') onNavigate('prev');
+
+      // Block Ctrl+P / Cmd+P (Print)
+      if ((e.ctrlKey || e.metaKey) && (e.key === 'p' || e.key === 'P')) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+
+      // Block Ctrl+S / Cmd+S (Save)
+      if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S')) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+
+      // Block F12 (DevTools)
+      if (e.key === 'F12') {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+
+      // Block Ctrl+Shift+I / Ctrl+Shift+C / Ctrl+Shift+J (DevTools inspect)
+      if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'C' || e.key === 'c' || e.key === 'J' || e.key === 'j')) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+
+      // Block Ctrl+U / Cmd+U (View Source)
+      if ((e.ctrlKey || e.metaKey) && (e.key === 'u' || e.key === 'U')) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    // Block PrintScreen key to blur screen instantly
+    const handleKeyUp = (e: KeyboardEvent) => {
+      if (!isOpen) return;
+      if (e.key === 'PrintScreen') {
+        setIsBlurred(true);
+        // Clear clipboard or alert
+        navigator.clipboard?.writeText?.("Contenido protegido. Captura deshabilitada.");
+        setTimeout(() => setIsBlurred(false), 2000);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown, true);
+    window.addEventListener('keyup', handleKeyUp, true);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown, true);
+      window.removeEventListener('keyup', handleKeyUp, true);
+    };
   }, [isOpen, onClose, onNavigate]);
 
   // Lock body scroll
@@ -84,13 +152,13 @@ export default function CertificateModal({
     <AnimatePresence>
       {isOpen && cert && (
         <motion.div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-md p-4 sm:p-8"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-md p-4 sm:p-8 select-none"
           variants={modalBackdrop}
           initial="hidden"
           animate="visible"
           exit="exit"
           onClick={handleBackdropClick}
-          onContextMenu={(e) => e.preventDefault()} // Block right-click globally in modal
+          onContextMenu={(e) => e.preventDefault()} // Block right-click on modal
           role="dialog"
           aria-modal="true"
           aria-labelledby="modal-title"
@@ -104,7 +172,7 @@ export default function CertificateModal({
             onTouchEnd={onTouchEndEvent}
           >
             {/* Header */}
-            <div className="terminal-header justify-between py-3">
+            <div className="terminal-header justify-between py-3 select-none">
               <div className="flex items-center gap-4">
                 <div className="flex gap-1.5">
                   <div className="terminal-dot dot-red" />
@@ -112,17 +180,16 @@ export default function CertificateModal({
                   <div className="terminal-dot dot-green" />
                 </div>
                 <div className="ml-4">
-                  <h3 id="modal-title" className="text-sm font-mono text-neon-cyan leading-tight">
+                  <h3 id="modal-title" className="text-sm font-mono text-neon-cyan leading-tight select-none">
                     {cert.title}
                   </h3>
-                  <p className="text-[10px] font-mono text-text-muted">
+                  <p className="text-[10px] font-mono text-text-muted select-none">
                     {cert.institution} · {cert.year}
                   </p>
                 </div>
               </div>
-              <div className="flex items-center gap-2">
-                {/* Download button intentionally removed for security */}
-                <span className="px-3 py-1.5 text-xs font-mono text-red-500/50 border border-red-500/20 rounded cursor-not-allowed uppercase tracking-widest hidden sm:inline-block">
+              <div className="flex items-center gap-2 select-none">
+                <span className="px-3 py-1.5 text-xs font-mono text-red-500/70 border border-red-500/20 rounded cursor-not-allowed uppercase tracking-widest hidden sm:inline-block">
                   [Protegido]
                 </span>
                 <button
@@ -138,31 +205,41 @@ export default function CertificateModal({
             </div>
 
             {/* Content Body (PDF or Image) */}
-            <div className="flex-1 bg-dark-950 relative overflow-auto">
-              
-              
+            <div 
+              className={`flex-1 bg-dark-950 relative overflow-hidden select-none transition-all duration-300 ${
+                isBlurred ? 'blur-3xl scale-95 opacity-25' : 'blur-none scale-100 opacity-100'
+              }`}
+              onContextMenu={(e) => e.preventDefault()}
+            >
               {cert.type === 'pdf' ? (
-                <iframe
-                  src={`${getCertUrl(cert.filename)}#toolbar=0&navpanes=0`}
-                  className="w-full h-full border-none"
-                  title={`Certificado: ${cert.title}`}
-                  loading="lazy"
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center p-4 sm:p-8 bg-[radial-gradient(ellipse_at_center,rgba(0,242,254,0.05)_0%,#050505_100%)] overflow-auto">
-                  <img
-                    src={getCertUrl(cert.filename)}
-                    alt={`Certificado: ${cert.title}`}
-                    className="max-w-full max-h-full object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+                <div className="w-full h-full relative overflow-hidden pointer-events-none select-none">
+                  <iframe
+                    src={`${getCertUrl(cert.filename)}#toolbar=0&navpanes=0&scrollbar=0`}
+                    className="w-full h-full border-none pointer-events-none select-none"
+                    title={`Certificado: ${cert.title}`}
                     loading="lazy"
                     onContextMenu={(e) => e.preventDefault()}
                   />
+                  {/* Invisible pointer event absorber overlay */}
+                  <div className="absolute inset-0 bg-transparent cursor-default pointer-events-auto" onContextMenu={(e) => e.preventDefault()} />
+                </div>
+              ) : (
+                <div className="w-full h-full flex items-center justify-center p-4 sm:p-8 bg-[radial-gradient(ellipse_at_center,rgba(0,242,254,0.05)_0%,#050505_100%)] overflow-hidden relative select-none">
+                  <img
+                    src={getCertUrl(cert.filename)}
+                    alt={`Certificado: ${cert.title}`}
+                    className="max-w-full max-h-full object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.1)] pointer-events-none select-none"
+                    loading="lazy"
+                    onContextMenu={(e) => e.preventDefault()}
+                  />
+                  {/* Invisible pointer event absorber overlay */}
+                  <div className="absolute inset-0 bg-transparent cursor-default pointer-events-auto" onContextMenu={(e) => e.preventDefault()} />
                 </div>
               )}
             </div>
 
             {/* Navigation Footer */}
-            <div className="flex items-center justify-between p-3 border-t border-white/10 bg-dark-900 text-sm">
+            <div className="flex items-center justify-between p-3 border-t border-white/10 bg-dark-900 text-sm select-none">
               <button
                 onClick={() => onNavigate('prev')}
                 className="flex items-center gap-2 font-mono text-xs text-text-muted hover:text-neon-cyan transition-colors px-4 py-2"

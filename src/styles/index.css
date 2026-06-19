@@ -166,3 +166,14 @@ img, iframe {
   min-height: 100vh;
   padding-top: 80px; /* offset for navbar */
 }
+
+/* ═══════ Security: Print Protection ═══════ */
+@media print {
+  body, html, #root {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+}
+
