@@ -43,11 +43,11 @@ export default function Certificates() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.4 }}
-            className="terminal-window group cursor-pointer hover:border-neon-cyan/50 hover:shadow-[0_0_20px_rgba(0,242,254,0.15)] transition-all duration-500 flex flex-col justify-between overflow-hidden min-h-[360px]"
+            className="terminal-window group cursor-pointer hover:border-neon-cyan/50 hover:shadow-[0_0_20px_rgba(0,242,254,0.15)] transition-all duration-500 flex flex-col justify-between overflow-hidden min-h-[300px]"
             onClick={() => openModal(cert)}
           >
             {/* Top Preview Image Section */}
-            <div className="w-full h-44 relative bg-dark-950 overflow-hidden border-b border-white/5 flex items-center justify-center select-none pointer-events-none">
+            <div className="w-full h-36 relative bg-dark-950 overflow-hidden border-b border-white/5 flex items-center justify-center select-none pointer-events-none">
               
               {/* Default Encrypted State Overlay */}
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,242,254,0.04)_0%,#050505_100%)] flex flex-col items-center justify-center p-4 transition-opacity duration-500 opacity-100 group-hover:opacity-0 z-10">
