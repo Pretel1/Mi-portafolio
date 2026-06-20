@@ -103,6 +103,9 @@ export default function Certificates() {
                 </span>
               </div>
 
+              {/* Transparent protective shield overlay (absorbs touch/clicks, blocks image right-click save menu) */}
+              <div className="absolute inset-0 bg-transparent z-20 pointer-events-auto cursor-pointer" onContextMenu={(e) => e.preventDefault()} />
+
               {/* Overlay Badges */}
               <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md w-7 h-7 rounded-full border border-white/10 flex items-center justify-center text-base shadow-md select-none pointer-events-none z-20">
                 {cert.icon}

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import SmoothScroll from '@/components/layout/SmoothScroll';
@@ -13,6 +14,48 @@ import Contact from '@/pages/Contact';
 
 export default function App() {
   const location = useLocation();
+
+  useEffect(() => {
+    const handleContextMenu = (e: MouseEvent) => {
+      e.preventDefault();
+    };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Block Ctrl+P / Cmd+P (Print)
+      if ((e.ctrlKey || e.metaKey) && (e.key === 'p' || e.key === 'P')) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      // Block Ctrl+S / Cmd+S (Save)
+      if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S')) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      // Block F12 (DevTools)
+      if (e.key === 'F12') {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      // Block Ctrl+Shift+I / Ctrl+Shift+C / Ctrl+Shift+J (DevTools inspect)
+      if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'C' || e.key === 'c' || e.key === 'J' || e.key === 'j')) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      // Block Ctrl+U / Cmd+U (View Source)
+      if ((e.ctrlKey || e.metaKey) && (e.key === 'u' || e.key === 'U')) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    };
+
+    document.addEventListener('contextmenu', handleContextMenu);
+    window.addEventListener('keydown', handleKeyDown, true);
+
+    return () => {
+      document.removeEventListener('contextmenu', handleContextMenu);
+      window.removeEventListener('keydown', handleKeyDown, true);
+    };
+  }, []);
 
   return (
     <SmoothScroll>
