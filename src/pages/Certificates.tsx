@@ -19,7 +19,7 @@ const CATEGORY_LOGS: Record<string, string> = {
 // Generate binary data blocks once at module level for high performance
 const generateBinaryBlock = () => {
   const lineCount = 20;
-  const charsPerLine = 35;
+  const charsPerLine = 25;
   const lines = Array.from({ length: lineCount }, () =>
     Array.from({ length: charsPerLine }, () => (Math.random() > 0.5 ? '1' : '0')).join('')
   );
@@ -115,8 +115,8 @@ export default function Certificates() {
             <div className="p-5 flex flex-col justify-between flex-1 relative overflow-hidden">
               
               {/* Scrolling Binary Code Background (Hologram style) */}
-              <div className="absolute inset-0 overflow-hidden opacity-[0.025] group-hover:opacity-[0.06] transition-opacity duration-500 pointer-events-none select-none z-0">
-                <div className="font-mono text-[7px] text-neon-green leading-[1.25] tracking-widest whitespace-pre select-none pointer-events-none animate-scroll-binary opacity-85">
+              <div className="absolute inset-0 overflow-hidden opacity-[0.05] group-hover:opacity-[0.14] transition-opacity duration-500 pointer-events-none select-none z-0">
+                <div className="font-mono text-[13px] text-yellow-500 leading-normal tracking-widest whitespace-pre select-none pointer-events-none animate-scroll-binary">
                   {BINARY_TEXT}
                 </div>
               </div>
