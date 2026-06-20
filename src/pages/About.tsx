@@ -1,6 +1,11 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { fadeUp, pageTransition, staggerContainer } from '@/utils/animations';
+import AntiScrapeText from '@/components/common/AntiScrapeText';
+
+const EMAIL_USER = '1263803';
+const EMAIL_DOMAIN = 'senati.pe';
+const emailAddress = `${EMAIL_USER}@${EMAIL_DOMAIN}`;
 
 const SKILLS = [
   { name: 'Redes (CCNA)', level: 85 },
@@ -99,7 +104,10 @@ export default function About() {
             <h3 className="text-xs font-mono text-purple uppercase tracking-widest mb-4">// Contacto</h3>
             <ul className="space-y-3 text-sm font-mono text-text-secondary">
               <li className="flex items-center gap-3 hover:text-white transition-colors">
-                <span className="text-purple w-5">✉</span> 1263803@senati.pe
+                <span className="text-purple w-5">✉</span>
+                <a href={`mailto:${emailAddress}`} className="hover:text-neon-cyan transition-colors" title="Enviar correo a Dany">
+                  {emailAddress}
+                </a>
               </li>
               <li className="flex items-center gap-3 hover:text-white transition-colors">
                 <span className="text-purple w-5">📱</span> +51 935 738 276
@@ -111,10 +119,12 @@ export default function About() {
                 <span className="text-purple w-5">in</span> /in/danny-pretel-2a35651a4
               </li>
               <li className="flex items-center gap-3 hover:text-white transition-colors mt-2 pt-2 border-t border-white/5">
-                <span className="text-purple w-5 text-xs font-bold">DNI</span> 62113229
+                <span className="text-purple w-5 text-xs font-bold">DNI</span>
+                <AntiScrapeText value="62113229" />
               </li>
               <li className="flex items-center gap-3 hover:text-white transition-colors">
-                <span className="text-purple w-5 text-xs font-bold">NAC</span> 09/05/2001
+                <span className="text-purple w-5 text-xs font-bold">NAC</span>
+                <AntiScrapeText value="09/05/2001" />
               </li>
             </ul>
           </motion.div>
