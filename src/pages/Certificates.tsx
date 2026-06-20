@@ -5,6 +5,17 @@ import { useCertificates } from '@/hooks/useCertificates';
 import { staggerContainer, pageTransition } from '@/utils/animations';
 import { Certificate } from '@/data/certificates';
 
+const CATEGORY_LOGS: Record<string, string> = {
+  'Redes': 'SYS_NET: IP_ADDR 10.0.0.1 // PORT 80/443 OPEN // CCNA_SCAN: ACTIVE',
+  'Seguridad': 'SYS_SEC: AES-256-GCM // INTEGRITY: SECURE // CRYPTO: OK',
+  'Ciencia de Datos': 'SYS_DATA: MATRIX_VAL [0.98, 0.95, 0.99] // ALGO: SUCCESS',
+  'Hardware': 'SYS_HW: CPU_TEMP 38C // VOLTAGE STABLE // MEMORY: OK',
+  'Habilidades Digitales': 'SYS_DIG: PROTOCOL_SSH // CONNECTION: SECURE',
+  'IoT': 'SYS_IOT: PROTOCOL_MQTT // PORT 1883 // FEED: CONNECTED',
+  'Militar y Conducta': 'SYS_MIL: RANK INSTRUCTOR // STATUS CERTIFIED // CODE: 100',
+  'default': 'SYS_LOG: BUFFER SAFE // PORTS SECURE // SCANNER ACTIVE',
+};
+
 export default function Certificates() {
   const {
     certificates: filtered,
@@ -64,7 +75,7 @@ export default function Certificates() {
               <img
                 src={getCertUrl(cert.filename)}
                 alt={`Miniatura de ${cert.title}`}
-                className="w-full h-full object-cover object-center filter brightness-[0.25] group-hover:brightness-[0.8] group-hover:scale-105 transition-all duration-700 opacity-0 group-hover:opacity-100 z-0 select-none pointer-events-none"
+                className="w-full h-full object-contain object-center filter brightness-[0.35] group-hover:brightness-[0.85] group-hover:scale-102 transition-all duration-500 opacity-0 group-hover:opacity-100 z-0 select-none pointer-events-none p-2"
                 loading="lazy"
               />
               
@@ -91,11 +102,14 @@ export default function Certificates() {
             {/* Bottom Card Details Section */}
             <div className="p-5 flex flex-col justify-between flex-1">
               <div>
-                <h3 className="text-base font-display font-bold text-white mb-2 leading-tight group-hover:text-neon-cyan transition-colors line-clamp-2">
+                <h3 className="text-base font-display font-bold text-white mb-1 leading-tight group-hover:text-neon-cyan transition-colors">
                   {cert.title}
                 </h3>
-                <p className="text-xs font-mono text-text-secondary line-clamp-1">
+                <p className="text-xs font-mono text-text-secondary">
                   {cert.institution}
+                </p>
+                <p className="text-[9px] font-mono text-text-muted/65 mt-2.5 pt-2.5 border-t border-white/5 select-none uppercase tracking-wider overflow-hidden text-ellipsis whitespace-nowrap" aria-hidden="true">
+                  &gt;_ {CATEGORY_LOGS[cert.category] || CATEGORY_LOGS['default']}
                 </p>
               </div>
               
