@@ -262,7 +262,7 @@ export default function CertificateModal({
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neon-green opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-neon-green"></span>
                   </span>
-                  &gt;_ VALIDAR CREDENCIAL
+                  &gt;_ VERIFICAR AUTENTICIDAD
                 </a>
               ) : (
                 <span className="text-[10px] font-mono text-text-muted hidden sm:inline-block select-none">
