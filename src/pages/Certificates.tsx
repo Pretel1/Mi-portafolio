@@ -84,18 +84,22 @@ export default function Certificates() {
                 </span>
               </div>
 
-              {/* Decrypted Actual Image - Fades in on Hover */}
+              {/* Decrypted Actual Image - Fades in on Hover (Blurred to prevent screen capture in grid) */}
               <img
                 src={getCertUrl(cert.filename)}
                 alt={`Miniatura de ${cert.title}`}
-                className="w-full h-full object-contain object-center filter brightness-[0.35] group-hover:brightness-[0.85] group-hover:scale-102 transition-all duration-500 opacity-0 group-hover:opacity-100 z-0 select-none pointer-events-none p-2"
+                className="w-full h-full object-contain object-center filter blur-[12px] group-hover:blur-[8px] brightness-[0.25] group-hover:brightness-[0.45] group-hover:scale-102 transition-all duration-500 opacity-0 group-hover:opacity-100 z-0 select-none pointer-events-none p-2"
                 loading="lazy"
               />
               
-              {/* Watermark Copy Protection Overlay (only on hover) */}
-              <div className="absolute inset-0 flex items-center justify-center bg-transparent opacity-0 group-hover:opacity-20 z-10 pointer-events-none transition-opacity duration-700">
-                <span className="text-[8px] font-mono font-bold tracking-widest text-white/50 border border-white/10 px-2 py-1 rotate-[-15deg] select-none pointer-events-none">
-                  COPIA PROTEGIDA
+              {/* Hover Secured Overlay */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 z-10 pointer-events-none transition-opacity duration-500 p-4">
+                <span className="text-xl mb-1 filter drop-shadow-[0_0_8px_rgba(0,255,135,0.45)]">🛡️</span>
+                <span className="text-[9px] font-mono text-neon-green tracking-widest text-center uppercase leading-normal">
+                  [ Click para Abrir ]
+                </span>
+                <span className="text-[7px] font-mono text-text-secondary mt-1 tracking-wider text-center">
+                  VISOR SEGURO PROTEGIDO
                 </span>
               </div>
 
