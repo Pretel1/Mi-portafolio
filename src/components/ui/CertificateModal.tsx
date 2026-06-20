@@ -179,11 +179,11 @@ export default function CertificateModal({
                   <div className="terminal-dot dot-yellow" />
                   <div className="terminal-dot dot-green" />
                 </div>
-                <div className="ml-4">
-                  <h3 id="modal-title" className="text-sm font-mono text-neon-cyan leading-tight select-none">
+                <div className="ml-2 sm:ml-4 overflow-hidden">
+                  <h3 id="modal-title" className="text-xs sm:text-sm font-mono text-neon-cyan leading-tight select-none max-w-[140px] xs:max-w-[200px] sm:max-w-md md:max-w-2xl truncate">
                     {cert.title}
                   </h3>
-                  <p className="text-[10px] font-mono text-text-muted select-none">
+                  <p className="text-[9px] sm:text-[10px] font-mono text-text-muted select-none truncate max-w-[140px] xs:max-w-[200px] sm:max-w-md">
                     {cert.institution} · {cert.year}
                   </p>
                 </div>
@@ -239,23 +239,35 @@ export default function CertificateModal({
             </div>
 
             {/* Navigation Footer */}
-            <div className="flex items-center justify-between p-3 border-t border-white/10 bg-dark-900 text-sm select-none">
-              <button
-                onClick={() => onNavigate('prev')}
-                className="flex items-center gap-2 font-mono text-xs text-text-muted hover:text-neon-cyan transition-colors px-4 py-2 cursor-pointer"
-              >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
-                </svg>
-                Anterior
-              </button>
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 p-3 border-t border-white/10 bg-dark-900 text-sm select-none">
+              <div className="flex items-center justify-between w-full sm:w-auto gap-4">
+                <button
+                  onClick={() => onNavigate('prev')}
+                  className="flex items-center gap-2 font-mono text-xs text-text-muted hover:text-neon-cyan transition-colors px-4 py-2 cursor-pointer"
+                >
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
+                  </svg>
+                  Anterior
+                </button>
+                
+                <button
+                  onClick={() => onNavigate('next')}
+                  className="flex items-center gap-2 font-mono text-xs text-text-muted hover:text-neon-cyan transition-colors px-4 py-2 cursor-pointer"
+                >
+                  Siguiente
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
               
               {cert.verificationUrl ? (
                 <a
                   href={cert.verificationUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-2 bg-neon-green/10 text-neon-green border border-neon-green/40 hover:bg-neon-green hover:text-black font-mono text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded shadow-[0_0_15px_rgba(0,255,135,0.15)] hover:shadow-[0_0_25px_rgba(0,255,135,0.45)] hover:border-neon-green flex items-center gap-2.5 animate-pulse hover:animate-none cursor-pointer"
+                  className="w-full sm:w-auto justify-center px-5 py-2 bg-neon-green/10 text-neon-green border border-neon-green/40 hover:bg-neon-green hover:text-black font-mono text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded shadow-[0_0_15px_rgba(0,255,135,0.15)] hover:shadow-[0_0_25px_rgba(0,255,135,0.45)] hover:border-neon-green flex items-center gap-2.5 animate-pulse hover:animate-none cursor-pointer"
                   title="Verificar autenticidad de credencial oficial en Credly"
                 >
                   <span className="relative flex h-2 w-2">
@@ -269,16 +281,6 @@ export default function CertificateModal({
                   USA ← → PARA NAVEGAR · ESC PARA CERRAR
                 </span>
               )}
-
-              <button
-                onClick={() => onNavigate('next')}
-                className="flex items-center gap-2 font-mono text-xs text-text-muted hover:text-neon-cyan transition-colors px-4 py-2 cursor-pointer"
-              >
-                Siguiente
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
             </div>
           </motion.div>
         </motion.div>
