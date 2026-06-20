@@ -189,18 +189,6 @@ export default function CertificateModal({
                 </div>
               </div>
               <div className="flex items-center gap-2 select-none">
-                {cert.verificationUrl && (
-                  <a
-                    href={cert.verificationUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-3 py-1.5 text-xs font-mono text-neon-green border border-neon-green/30 hover:border-neon-green/80 hover:bg-neon-green/10 rounded cursor-pointer uppercase tracking-widest hover:shadow-[0_0_15px_rgba(0,255,135,0.3)] transition-all duration-300 flex items-center gap-1.5"
-                    title="Validar credencial oficial en Credly"
-                  >
-                    <span>🔗</span>
-                    <span className="hidden xs:inline">Validar</span>
-                  </a>
-                )}
                 <span className="px-3 py-1.5 text-xs font-mono text-red-500/70 border border-red-500/20 rounded cursor-not-allowed uppercase tracking-widest hidden sm:inline-block">
                   [Protegido]
                 </span>
@@ -254,19 +242,37 @@ export default function CertificateModal({
             <div className="flex items-center justify-between p-3 border-t border-white/10 bg-dark-900 text-sm select-none">
               <button
                 onClick={() => onNavigate('prev')}
-                className="flex items-center gap-2 font-mono text-xs text-text-muted hover:text-neon-cyan transition-colors px-4 py-2"
+                className="flex items-center gap-2 font-mono text-xs text-text-muted hover:text-neon-cyan transition-colors px-4 py-2 cursor-pointer"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
                 </svg>
                 Anterior
               </button>
-              <span className="text-[10px] font-mono text-text-muted hidden sm:inline-block">
-                USA ← → PARA NAVEGAR · ESC PARA CERRAR
-              </span>
+              
+              {cert.verificationUrl ? (
+                <a
+                  href={cert.verificationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2 bg-neon-green/10 text-neon-green border border-neon-green/40 hover:bg-neon-green hover:text-black font-mono text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded shadow-[0_0_15px_rgba(0,255,135,0.15)] hover:shadow-[0_0_25px_rgba(0,255,135,0.45)] hover:border-neon-green flex items-center gap-2.5 animate-pulse hover:animate-none cursor-pointer"
+                  title="Verificar autenticidad de credencial oficial en Credly"
+                >
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neon-green opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-neon-green"></span>
+                  </span>
+                  &gt;_ VALIDAR CREDENCIAL
+                </a>
+              ) : (
+                <span className="text-[10px] font-mono text-text-muted hidden sm:inline-block select-none">
+                  USA ← → PARA NAVEGAR · ESC PARA CERRAR
+                </span>
+              )}
+
               <button
                 onClick={() => onNavigate('next')}
-                className="flex items-center gap-2 font-mono text-xs text-text-muted hover:text-neon-cyan transition-colors px-4 py-2"
+                className="flex items-center gap-2 font-mono text-xs text-text-muted hover:text-neon-cyan transition-colors px-4 py-2 cursor-pointer"
               >
                 Siguiente
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
