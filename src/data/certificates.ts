@@ -19,6 +19,7 @@ export interface Certificate {
   icon: string;
   type: 'pdf' | 'image';
   origin: 'SENATI' | 'Externo';
+  verificationUrl?: string;
 }
 
 export const certificates: Certificate[] = [
@@ -33,6 +34,7 @@ export const certificates: Certificate[] = [
     icon: '🌐',
     type: 'image',
     origin: 'SENATI',
+    verificationUrl: 'https://www.credly.com/badges/27c75cf9-7147-46c4-a313-fd782f371a63/public_url',
   },
   {
     id: 'ethical-hacker',
@@ -45,6 +47,7 @@ export const certificates: Certificate[] = [
     icon: '🛡️',
     type: 'image',
     origin: 'Externo',
+    verificationUrl: 'https://www.credly.com/badges/9db3352c-a1ac-481a-bb16-bd0dc858ca6c/public_url',
   },
   {
     id: 'data-science',
@@ -57,6 +60,7 @@ export const certificates: Certificate[] = [
     icon: '📊',
     type: 'image',
     origin: 'SENATI',
+    verificationUrl: 'https://www.credly.com/badges/b2827544-2aa5-4119-9b89-c1e933573f5f/public_url',
   },
   {
     id: 'hardware-basics',
@@ -69,6 +73,7 @@ export const certificates: Certificate[] = [
     icon: '🖥️',
     type: 'image',
     origin: 'SENATI',
+    verificationUrl: 'https://www.credly.com/badges/d4c819f4-edda-4ef2-ac01-5509191735e7/public_url',
   },
   {
     id: 'network-basics',
@@ -81,6 +86,7 @@ export const certificates: Certificate[] = [
     icon: '📡',
     type: 'image',
     origin: 'SENATI',
+    verificationUrl: 'https://www.credly.com/badges/f6dc975e-4e9c-4f0b-a98d-235cea15a382/public_url',
   },
   {
     id: 'iot-digital-transformation',
@@ -93,6 +99,7 @@ export const certificates: Certificate[] = [
     icon: '🔗',
     type: 'image',
     origin: 'SENATI',
+    verificationUrl: 'https://www.credly.com/badges/b396e56a-1948-4e9d-9761-50e8c91ff520/public_url',
   },
   {
     id: 'digital-content-creation',
@@ -105,6 +112,7 @@ export const certificates: Certificate[] = [
     icon: '✨',
     type: 'image',
     origin: 'SENATI',
+    verificationUrl: 'https://www.credly.com/badges/dabc2008-28da-4bcf-b3bb-fc1890fb825b/public_url',
   },
   {
     id: 'digital-awareness',
@@ -117,6 +125,7 @@ export const certificates: Certificate[] = [
     icon: '🔐',
     type: 'image',
     origin: 'SENATI',
+    verificationUrl: 'https://www.credly.com/badges/053dd8a6-8f94-4ce3-bf11-4662cb823e6b/public_url',
   },
   {
     id: 'computers-mobile-devices',
@@ -129,6 +138,7 @@ export const certificates: Certificate[] = [
     icon: '📱',
     type: 'image',
     origin: 'SENATI',
+    verificationUrl: 'https://www.credly.com/badges/0267aed0-26cb-447b-b52b-885b7895a1de/public_url',
   },
   {
     id: 'course-attendance-1',
@@ -140,6 +150,7 @@ export const certificates: Certificate[] = [
     icon: '📑',
     type: 'image',
     origin: 'SENATI',
+    verificationUrl: 'https://www.credly.com/badges/defb1ea8-4769-4cdf-a588-58eba768eca0/public_url',
   },
   {
     id: 'conducta',

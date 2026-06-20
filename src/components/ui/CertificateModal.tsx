@@ -189,6 +189,18 @@ export default function CertificateModal({
                 </div>
               </div>
               <div className="flex items-center gap-2 select-none">
+                {cert.verificationUrl && (
+                  <a
+                    href={cert.verificationUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1.5 text-xs font-mono text-neon-green border border-neon-green/30 hover:border-neon-green/80 hover:bg-neon-green/10 rounded cursor-pointer uppercase tracking-widest hover:shadow-[0_0_15px_rgba(0,255,135,0.3)] transition-all duration-300 flex items-center gap-1.5"
+                    title="Validar credencial oficial en Credly"
+                  >
+                    <span>🔗</span>
+                    <span className="hidden xs:inline">Validar</span>
+                  </a>
+                )}
                 <span className="px-3 py-1.5 text-xs font-mono text-red-500/70 border border-red-500/20 rounded cursor-not-allowed uppercase tracking-widest hidden sm:inline-block">
                   [Protegido]
                 </span>
