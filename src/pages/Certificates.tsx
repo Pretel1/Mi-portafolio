@@ -92,9 +92,6 @@ export default function Certificates() {
                 loading="lazy"
               />
               
-              {/* Laser Scan HUD Line */}
-              <div className="absolute left-0 right-0 h-[1.5px] bg-neon-cyan/80 shadow-[0_0_12px_rgba(0,242,254,0.8)] opacity-0 group-hover:opacity-100 animate-laser-scan pointer-events-none z-20" />
-
               {/* Watermark Copy Protection Overlay (only on hover) */}
               <div className="absolute inset-0 flex items-center justify-center bg-transparent opacity-0 group-hover:opacity-20 z-10 pointer-events-none transition-opacity duration-700">
                 <span className="text-[8px] font-mono font-bold tracking-widest text-white/50 border border-white/10 px-2 py-1 rotate-[-15deg] select-none pointer-events-none">
