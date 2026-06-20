@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
 import CertificateModal from '@/components/ui/CertificateModal';
 import { useCertificates } from '@/hooks/useCertificates';
-import { fadeUp, staggerContainer, pageTransition } from '@/utils/animations';
+import { staggerContainer, pageTransition } from '@/utils/animations';
 import { Certificate } from '@/data/certificates';
 
 export default function Certificates() {
@@ -43,29 +43,58 @@ export default function Certificates() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.4 }}
-            className="terminal-window p-6 group cursor-pointer hover:border-neon-cyan/50 hover:shadow-[0_0_20px_rgba(0,242,254,0.1)] transition-all duration-500 flex flex-col justify-between min-h-[280px]"
+            className="terminal-window group cursor-pointer hover:border-neon-cyan/50 hover:shadow-[0_0_20px_rgba(0,242,254,0.15)] transition-all duration-500 flex flex-col justify-between overflow-hidden min-h-[360px]"
             onClick={() => openModal(cert)}
           >
-            <div>
-              <div className="flex justify-between items-start mb-6">
-                <span className="text-3xl filter brightness-75 group-hover:brightness-100 transition-all duration-500">{cert.icon}</span>
-                <span className="text-[10px] font-mono px-2 py-1 rounded bg-dark-800 border border-white/10 text-neon-cyan tracking-widest">{cert.category}</span>
+            {/* Top Preview Image Section */}
+            <div className="w-full h-44 relative bg-dark-950 overflow-hidden border-b border-white/5 flex items-center justify-center select-none pointer-events-none">
+              <img
+                src={getCertUrl(cert.filename)}
+                alt={`Miniatura de ${cert.title}`}
+                className="w-full h-full object-cover object-center filter brightness-[0.35] group-hover:brightness-[0.85] group-hover:scale-105 transition-all duration-500 select-none pointer-events-none"
+                loading="lazy"
+              />
+              
+              {/* Laser Scan HUD Line */}
+              <div className="absolute left-0 right-0 h-[1.5px] bg-neon-cyan/80 shadow-[0_0_12px_rgba(0,242,254,0.8)] opacity-0 group-hover:opacity-100 animate-laser-scan pointer-events-none" />
+
+              {/* Overlay Badges */}
+              <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-lg shadow-md select-none pointer-events-none">
+                {cert.icon}
               </div>
-              <h3 className="text-xl font-display font-medium text-white mb-2 leading-tight group-hover:text-neon-cyan transition-colors">
-                {cert.title}
-              </h3>
-              <p className="text-sm font-mono text-text-secondary">
-                {cert.institution}
-              </p>
+              
+              <span className="absolute top-3 right-3 text-[9px] font-mono font-bold px-2 py-0.5 rounded bg-dark-950/80 backdrop-blur-md border border-white/10 text-neon-cyan tracking-wider select-none pointer-events-none uppercase">
+                {cert.category}
+              </span>
             </div>
-            
-            <div className="flex justify-between items-center mt-8 pt-4 border-t border-white/5">
-              <span className="text-xs font-mono text-text-muted">
-                [{cert.year}] {cert.hours ? `{${cert.hours}h}` : ''}
-              </span>
-              <span className="text-xs font-mono text-neon-cyan opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-2">
-                &gt; Ver Documento
-              </span>
+
+            {/* Bottom Card Details Section */}
+            <div className="p-5 flex flex-col justify-between flex-1">
+              <div>
+                <h3 className="text-base font-display font-bold text-white mb-2 leading-tight group-hover:text-neon-cyan transition-colors line-clamp-2">
+                  {cert.title}
+                </h3>
+                <p className="text-xs font-mono text-text-secondary line-clamp-1">
+                  {cert.institution}
+                </p>
+              </div>
+              
+              <div className="flex justify-between items-center mt-5 pt-3 border-t border-white/5">
+                <span className="text-[10px] font-mono text-text-muted">
+                  [{cert.year}] {cert.hours ? `{${cert.hours}h}` : ''}
+                </span>
+                
+                {cert.verificationUrl ? (
+                  <span className="text-[9px] font-mono text-neon-green flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-neon-green animate-pulse" />
+                    [Verificado]
+                  </span>
+                ) : (
+                  <span className="text-[9px] font-mono text-text-muted">
+                    [Protegido]
+                  </span>
+                )}
+              </div>
             </div>
           </motion.div>
         ))}
@@ -82,6 +111,30 @@ export default function Certificates() {
       className="page-container section-padding"
     >
       <div className="w-full px-4 sm:px-8 lg:px-12 mx-auto">
+        
+        {/* Animated Cyber Mascot */}
+        <motion.div 
+          className="flex justify-center mb-6 select-none pointer-events-none"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.img 
+            src={`${import.meta.env.BASE_URL}images/cyber_drone.png`}
+            alt="Security Assistant Drone"
+            className="w-28 h-28 md:w-36 md:h-36 object-contain drop-shadow-[0_0_20px_rgba(0,242,254,0.35)] pointer-events-none select-none"
+            animate={{ 
+              y: [0, -10, 0],
+              rotate: [0, 1.5, -1.5, 0]
+            }}
+            transition={{ 
+              duration: 6, 
+              repeat: Infinity, 
+              ease: "easeInOut" 
+            }}
+          />
+        </motion.div>
+
         {/* Header Terminal Style */}
         <div className="mb-16 flex flex-col items-center text-center">
           <p className="text-neon-cyan font-mono text-sm mb-2">&gt; ls -la ./certificados</p>
@@ -101,7 +154,7 @@ export default function Certificates() {
                 key={category}
                 onClick={() => setActiveCategory(category)}
                 className={`
-                  relative px-4 py-2 text-xs font-mono tracking-wide transition-all duration-300 rounded-sm
+                  relative px-4 py-2 text-xs font-mono tracking-wide transition-all duration-300 rounded-sm cursor-pointer
                   ${activeCategory === category 
                     ? 'text-black bg-neon-cyan shadow-[0_0_10px_rgba(0,242,254,0.3)]' 
                     : 'text-text-muted hover:text-neon-cyan hover:bg-neon-cyan/10 border border-transparent'}
