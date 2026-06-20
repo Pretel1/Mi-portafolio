@@ -16,6 +16,18 @@ const CATEGORY_LOGS: Record<string, string> = {
   'default': 'SYS_LOG: BUFFER SAFE // PORTS SECURE // SCANNER ACTIVE',
 };
 
+// Generate binary data blocks once at module level for high performance
+const generateBinaryBlock = () => {
+  const lineCount = 20;
+  const charsPerLine = 35;
+  const lines = Array.from({ length: lineCount }, () =>
+    Array.from({ length: charsPerLine }, () => (Math.random() > 0.5 ? '1' : '0')).join('')
+  );
+  const block = lines.join('\n');
+  return block + '\n' + block; // Duplicate to enable seamless CSS loops
+};
+const BINARY_TEXT = generateBinaryBlock();
+
 export default function Certificates() {
   const {
     certificates: filtered,
@@ -99,9 +111,18 @@ export default function Certificates() {
               </span>
             </div>
 
-            {/* Bottom Card Details Section */}
-            <div className="p-5 flex flex-col justify-between flex-1">
-              <div>
+            {/* Bottom Card Details Section with Scrolling Hologram */}
+            <div className="p-5 flex flex-col justify-between flex-1 relative overflow-hidden">
+              
+              {/* Scrolling Binary Code Background (Hologram style) */}
+              <div className="absolute inset-0 overflow-hidden opacity-[0.025] group-hover:opacity-[0.06] transition-opacity duration-500 pointer-events-none select-none z-0">
+                <div className="font-mono text-[7px] text-neon-green leading-[1.25] tracking-widest whitespace-pre select-none pointer-events-none animate-scroll-binary opacity-85">
+                  {BINARY_TEXT}
+                </div>
+              </div>
+
+              {/* Text Content overlayed on top of background */}
+              <div className="relative z-10">
                 <h3 className="text-base font-display font-bold text-white mb-1 leading-tight group-hover:text-neon-cyan transition-colors">
                   {cert.title}
                 </h3>
@@ -113,7 +134,7 @@ export default function Certificates() {
                 </p>
               </div>
               
-              <div className="flex justify-between items-center mt-5 pt-3 border-t border-white/5">
+              <div className="relative z-10 flex justify-between items-center mt-5 pt-3 border-t border-white/5">
                 <span className="text-[10px] font-mono text-text-muted">
                   [{cert.year}] {cert.hours ? `{${cert.hours}h}` : ''}
                 </span>
