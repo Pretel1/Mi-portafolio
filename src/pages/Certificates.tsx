@@ -114,24 +114,28 @@ export default function Certificates() {
             {/* Bottom Card Details Section with Scrolling Hologram */}
             <div className="p-5 flex flex-col justify-between flex-1 relative overflow-hidden">
               
-              {/* Scrolling Binary Code Background (Hologram style) */}
-              <div className="absolute inset-0 overflow-hidden opacity-[0.08] group-hover:opacity-[0.20] transition-opacity duration-500 pointer-events-none select-none z-0">
-                <div className="font-mono text-[15px] text-yellow-500 leading-normal tracking-widest whitespace-pre select-none pointer-events-none animate-scroll-binary">
-                  {BINARY_TEXT}
-                </div>
-              </div>
-
-              {/* Text Content overlayed on top of background */}
-              <div className="relative z-10">
+              {/* Text Content */}
+              <div className="relative z-10 flex-1 flex flex-col">
                 <h3 className="text-base font-display font-bold text-white mb-1 leading-tight group-hover:text-neon-cyan transition-colors">
                   {cert.title}
                 </h3>
                 <p className="text-xs font-mono text-text-secondary">
                   {cert.institution}
                 </p>
-                <p className="text-[9px] font-mono text-text-muted/65 mt-2.5 pt-2.5 border-t border-white/5 select-none uppercase tracking-wider overflow-hidden text-ellipsis whitespace-nowrap" aria-hidden="true">
-                  &gt;_ {CATEGORY_LOGS[cert.category] || CATEGORY_LOGS['default']}
-                </p>
+                
+                {/* Hologram Console Area (only shows the log and the binary code rain below it) */}
+                <div className="relative flex-1 min-h-[60px] mt-2.5 pt-2.5 border-t border-white/5 overflow-hidden">
+                  <p className="text-[9px] font-mono text-text-muted/65 select-none uppercase tracking-wider overflow-hidden text-ellipsis whitespace-nowrap relative z-10" aria-hidden="true">
+                    &gt;_ {CATEGORY_LOGS[cert.category] || CATEGORY_LOGS['default']}
+                  </p>
+                  
+                  {/* Scrolling Binary Code Background inside this specific area */}
+                  <div className="absolute inset-x-0 bottom-0 top-[20px] overflow-hidden opacity-[0.08] group-hover:opacity-[0.20] transition-opacity duration-500 pointer-events-none select-none z-0">
+                    <div className="font-mono text-[15px] text-yellow-500 leading-normal tracking-widest whitespace-pre select-none pointer-events-none animate-scroll-binary">
+                      {BINARY_TEXT}
+                    </div>
+                  </div>
+                </div>
               </div>
               
               <div className="relative z-10 flex justify-between items-center mt-5 pt-3 border-t border-white/5">
