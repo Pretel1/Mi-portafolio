@@ -239,35 +239,23 @@ export default function CertificateModal({
             </div>
 
             {/* Navigation Footer */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 p-3 border-t border-white/10 bg-dark-900 text-sm select-none">
-              <div className="flex items-center justify-between w-full sm:w-auto gap-4">
-                <button
-                  onClick={() => onNavigate('prev')}
-                  className="flex items-center gap-2 font-mono text-xs text-text-muted hover:text-neon-cyan transition-colors px-4 py-2 cursor-pointer"
-                >
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
-                  </svg>
-                  Anterior
-                </button>
-                
-                <button
-                  onClick={() => onNavigate('next')}
-                  className="flex items-center gap-2 font-mono text-xs text-text-muted hover:text-neon-cyan transition-colors px-4 py-2 cursor-pointer"
-                >
-                  Siguiente
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 items-center gap-3 p-3 border-t border-white/10 bg-dark-900 text-sm select-none">
+              <button
+                onClick={() => onNavigate('prev')}
+                className="justify-self-start flex items-center gap-2 font-mono text-xs text-text-muted hover:text-neon-cyan transition-colors px-4 py-2 cursor-pointer"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
+                </svg>
+                Anterior
+              </button>
               
               {cert.verificationUrl ? (
                 <a
                   href={cert.verificationUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto justify-center px-5 py-2 bg-neon-green/10 text-neon-green border border-neon-green/40 hover:bg-neon-green hover:text-black font-mono text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded shadow-[0_0_15px_rgba(0,255,135,0.15)] hover:shadow-[0_0_25px_rgba(0,255,135,0.45)] hover:border-neon-green flex items-center gap-2.5 animate-pulse hover:animate-none cursor-pointer"
+                  className="col-span-2 sm:col-span-1 sm:col-start-2 justify-self-center w-full sm:w-auto justify-center px-5 py-2 bg-neon-green/10 text-neon-green border border-neon-green/40 hover:bg-neon-green hover:text-black font-mono text-xs font-bold uppercase tracking-widest transition-all duration-300 rounded shadow-[0_0_15px_rgba(0,255,135,0.15)] hover:shadow-[0_0_25px_rgba(0,255,135,0.45)] hover:border-neon-green flex items-center gap-2.5 animate-pulse hover:animate-none cursor-pointer"
                   title="Verificar autenticidad de credencial oficial en Credly"
                 >
                   <span className="relative flex h-2 w-2">
@@ -277,10 +265,20 @@ export default function CertificateModal({
                   &gt;_ VERIFICAR AUTENTICIDAD
                 </a>
               ) : (
-                <span className="text-[10px] font-mono text-text-muted hidden sm:inline-block select-none">
+                <span className="col-span-2 sm:col-span-1 sm:col-start-2 justify-self-center text-[10px] font-mono text-text-muted hidden sm:inline-block select-none">
                   USA ← → PARA NAVEGAR · ESC PARA CERRAR
                 </span>
               )}
+
+              <button
+                onClick={() => onNavigate('next')}
+                className="col-start-2 sm:col-start-3 justify-self-end flex items-center gap-2 font-mono text-xs text-text-muted hover:text-neon-cyan transition-colors px-4 py-2 cursor-pointer"
+              >
+                Siguiente
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
             </div>
           </motion.div>
         </motion.div>
