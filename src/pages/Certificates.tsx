@@ -4,6 +4,7 @@ import CertificateModal from '@/components/ui/CertificateModal';
 import { useCertificates } from '@/hooks/useCertificates';
 import { staggerContainer, pageTransition } from '@/utils/animations';
 import { Certificate } from '@/data/certificates';
+import CyberGlobe from '@/components/ui/CyberGlobe';
 
 const CATEGORY_LOGS: Record<string, string> = {
   'Redes': 'SYS_NET: IP_ADDR 10.0.0.1 // PORT 80/443 OPEN // CCNA_SCAN: ACTIVE',
@@ -171,27 +172,24 @@ export default function Certificates() {
     >
       <div className="w-full px-4 sm:px-8 lg:px-12 mx-auto">
         
-        {/* Animated Cyber Mascot */}
+        {/* Animated Cyber Mascot (Mini 3D Globe) */}
         <motion.div 
           className="flex justify-center mb-6 select-none pointer-events-none"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.img 
-            src={`${import.meta.env.BASE_URL}images/cyber_hologram.png`}
-            alt="Security Assistant Hologram Shield"
-            className="w-28 h-28 md:w-36 md:h-36 object-contain drop-shadow-[0_0_20px_rgba(0,242,254,0.35)] pointer-events-none select-none"
-            animate={{ 
-              y: [0, -10, 0],
-              rotate: [0, 1.5, -1.5, 0]
-            }}
-            transition={{ 
-              duration: 6, 
-              repeat: Infinity, 
-              ease: "easeInOut" 
-            }}
-          />
+          <div className="w-28 h-28 md:w-32 md:h-32 flex items-center justify-center">
+            <CyberGlobe 
+              size={130} 
+              globeRadius={46} 
+              color="rgba(0, 242, 254, " 
+              ringColor="rgba(0, 255, 135, "
+              pointCount={100}
+              showRings={true}
+              interactive={true}
+            />
+          </div>
         </motion.div>
 
         {/* Header Terminal Style */}
