@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import CyberGlobe from '@/components/ui/CyberGlobe';
+import ParticleCanvas from '@/components/ui/ParticleCanvas';
 import { fadeUp, staggerContainer, pageTransition } from '@/utils/animations';
 
 export default function Home() {
@@ -17,6 +18,9 @@ export default function Home() {
       exit="exit"
       className="page-container flex items-center justify-center relative overflow-hidden"
     >
+      {/* Matrix/Network Background */}
+      <ParticleCanvas />
+
       {/* 3D Rotating Cyber Globe Background */}
       <div className="absolute inset-0 flex items-center justify-center overflow-hidden z-0 pointer-events-none select-none opacity-[0.22]">
         <div className="scale-[1.1] sm:scale-[1.3] md:scale-[1.5] lg:scale-[1.7] transition-transform duration-700">
