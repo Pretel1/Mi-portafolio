@@ -48,22 +48,42 @@ export default function Certificates() {
           >
             {/* Top Preview Image Section */}
             <div className="w-full h-44 relative bg-dark-950 overflow-hidden border-b border-white/5 flex items-center justify-center select-none pointer-events-none">
+              
+              {/* Default Encrypted State Overlay */}
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,242,254,0.04)_0%,#050505_100%)] flex flex-col items-center justify-center p-4 transition-opacity duration-500 opacity-100 group-hover:opacity-0 z-10">
+                <span className="text-xl mb-1.5 animate-pulse filter drop-shadow-[0_0_8px_rgba(0,242,254,0.4)]">🔒</span>
+                <span className="text-[9px] font-mono text-neon-cyan tracking-widest text-center uppercase leading-normal">
+                  [ Datos Encriptados ]
+                </span>
+                <span className="text-[7px] font-mono text-text-muted mt-1.5 tracking-wider text-center">
+                  PASAR CURSOR PARA DESCIFRAR
+                </span>
+              </div>
+
+              {/* Decrypted Actual Image - Fades in on Hover */}
               <img
                 src={getCertUrl(cert.filename)}
                 alt={`Miniatura de ${cert.title}`}
-                className="w-full h-full object-cover object-center filter brightness-[0.35] group-hover:brightness-[0.85] group-hover:scale-105 transition-all duration-500 select-none pointer-events-none"
+                className="w-full h-full object-cover object-center filter brightness-[0.25] group-hover:brightness-[0.8] group-hover:scale-105 transition-all duration-700 opacity-0 group-hover:opacity-100 z-0 select-none pointer-events-none"
                 loading="lazy"
               />
               
               {/* Laser Scan HUD Line */}
-              <div className="absolute left-0 right-0 h-[1.5px] bg-neon-cyan/80 shadow-[0_0_12px_rgba(0,242,254,0.8)] opacity-0 group-hover:opacity-100 animate-laser-scan pointer-events-none" />
+              <div className="absolute left-0 right-0 h-[1.5px] bg-neon-cyan/80 shadow-[0_0_12px_rgba(0,242,254,0.8)] opacity-0 group-hover:opacity-100 animate-laser-scan pointer-events-none z-20" />
+
+              {/* Watermark Copy Protection Overlay (only on hover) */}
+              <div className="absolute inset-0 flex items-center justify-center bg-transparent opacity-0 group-hover:opacity-20 z-10 pointer-events-none transition-opacity duration-700">
+                <span className="text-[8px] font-mono font-bold tracking-widest text-white/50 border border-white/10 px-2 py-1 rotate-[-15deg] select-none pointer-events-none">
+                  COPIA PROTEGIDA
+                </span>
+              </div>
 
               {/* Overlay Badges */}
-              <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-lg shadow-md select-none pointer-events-none">
+              <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md w-7 h-7 rounded-full border border-white/10 flex items-center justify-center text-base shadow-md select-none pointer-events-none z-20">
                 {cert.icon}
               </div>
               
-              <span className="absolute top-3 right-3 text-[9px] font-mono font-bold px-2 py-0.5 rounded bg-dark-950/80 backdrop-blur-md border border-white/10 text-neon-cyan tracking-wider select-none pointer-events-none uppercase">
+              <span className="absolute top-3 right-3 text-[8px] font-mono font-bold px-2 py-0.5 rounded bg-dark-950/80 backdrop-blur-md border border-white/10 text-neon-cyan tracking-wider select-none pointer-events-none uppercase z-20">
                 {cert.category}
               </span>
             </div>
@@ -120,8 +140,8 @@ export default function Certificates() {
           transition={{ duration: 0.8 }}
         >
           <motion.img 
-            src={`${import.meta.env.BASE_URL}images/cyber_drone.png`}
-            alt="Security Assistant Drone"
+            src={`${import.meta.env.BASE_URL}images/cyber_hologram.png`}
+            alt="Security Assistant Hologram Shield"
             className="w-28 h-28 md:w-36 md:h-36 object-contain drop-shadow-[0_0_20px_rgba(0,242,254,0.35)] pointer-events-none select-none"
             animate={{ 
               y: [0, -10, 0],
