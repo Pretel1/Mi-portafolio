@@ -6,12 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "preview": "vite preview",
-    "generate-certs": "node scripts/generate-cert-manifest.js"
+    "preview": "vite preview"
   },
   "dependencies": {
     "framer-motion": "^11.18.0",
-    "gsap": "^3.12.7",
     "lenis": "^1.1.18",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
