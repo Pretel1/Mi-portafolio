@@ -155,7 +155,7 @@ export default function Contact() {
               </div>
               
               <p className="text-sm font-mono text-text-secondary mb-6 leading-relaxed">
-                Visualiza e imprime mi CV en formato digital, o descarga el documento en Microsoft Word (.doc) con un clic.
+                Visualiza e imprime mi CV en formato digital, o descarga el documento en PDF con un clic.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 w-full">
@@ -167,11 +167,11 @@ export default function Contact() {
                 </Link>
                 
                 <a
-                  href={`${import.meta.env.BASE_URL}CV_Dany_Pretel.doc`}
-                  download="CV_Dany_Pretel.doc"
+                  href={`${import.meta.env.BASE_URL}CV_Dany_Pretel.pdf`}
+                  download="CV_Dany_Pretel.pdf"
                   className="flex-1 px-4 py-3 bg-transparent hover:bg-white/5 text-white border border-white/20 text-xs font-mono font-bold uppercase tracking-wider text-center transition-all duration-300 rounded cursor-pointer"
                 >
-                  $ Descargar Word
+                  $ Descargar PDF
                 </a>
               </div>
             </motion.div>

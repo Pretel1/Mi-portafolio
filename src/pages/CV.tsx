@@ -49,14 +49,14 @@ export default function CV() {
           
           <div className="flex flex-wrap items-center gap-3">
             <a
-              href={`${import.meta.env.BASE_URL}CV_Dany_Pretel.doc`}
-              download="CV_Dany_Pretel.doc"
+              href={`${import.meta.env.BASE_URL}CV_Dany_Pretel.pdf`}
+              download="CV_Dany_Pretel.pdf"
               className="flex items-center gap-2 px-5 py-2.5 border border-neon-cyan/50 text-neon-cyan text-xs font-mono font-bold uppercase tracking-wider rounded hover:bg-neon-cyan/15 hover:shadow-[0_0_20px_rgba(0,242,254,0.2)] transition-all duration-300 cursor-pointer"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
-              Descargar Word (.doc)
+              Descargar PDF
             </a>
             
             <button
