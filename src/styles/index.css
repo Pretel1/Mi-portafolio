@@ -197,6 +197,18 @@ img, iframe {
     overflow: visible !important;
   }
 
+  body.allow-print .page-container {
+    padding-top: 0 !important;
+    min-height: auto !important;
+  }
+
+  body.allow-print *:not(img) {
+    background: transparent !important;
+    color: #1a1a1a !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
   body.allow-print .no-print {
     display: none !important;
   }
