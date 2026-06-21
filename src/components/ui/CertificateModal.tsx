@@ -22,6 +22,14 @@ export default function CertificateModal({
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const [isBlurred, setIsBlurred] = useState(false);
+  const [timestamp, setTimestamp] = useState('');
+
+  useEffect(() => {
+    if (isOpen) {
+      const options: Intl.DateTimeFormatOptions = { day: '2-digit', month: 'short', year: 'numeric' };
+      setTimestamp(new Date().toLocaleDateString('es-ES', options).toUpperCase());
+    }
+  }, [isOpen]);
 
   // Minimum swipe distance for mobile navigation
   const minSwipeDistance = 50;
@@ -220,8 +228,17 @@ export default function CertificateModal({
                     loading="lazy"
                     onContextMenu={(e) => e.preventDefault()}
                   />
+                  {/* Dynamic Watermark Overlay for PDF */}
+                  <div className="absolute inset-0 pointer-events-none select-none overflow-hidden flex flex-col justify-around opacity-[0.06] rotate-[-15deg] scale-125 z-10">
+                    {Array.from({ length: 6 }).map((_, i) => (
+                      <div key={i} className="flex justify-around text-[9px] sm:text-[11px] font-mono tracking-widest text-neon-cyan whitespace-nowrap select-none">
+                        <span>DANY PRETEL · COPIA PROTEGIDA · DNI 62113229 · ACCESO: {timestamp}</span>
+                        <span>DANY PRETEL · COPIA PROTEGIDA · DNI 62113229 · ACCESO: {timestamp}</span>
+                      </div>
+                    ))}
+                  </div>
                   {/* Invisible pointer event absorber overlay */}
-                  <div className="absolute inset-0 bg-transparent cursor-default pointer-events-auto" onContextMenu={(e) => e.preventDefault()} />
+                  <div className="absolute inset-0 bg-transparent cursor-default pointer-events-auto z-20" onContextMenu={(e) => e.preventDefault()} />
                 </div>
               ) : (
                 <div className="w-full h-full flex items-center justify-center p-4 sm:p-8 bg-[radial-gradient(ellipse_at_center,rgba(0,242,254,0.05)_0%,#050505_100%)] overflow-hidden relative select-none">
@@ -232,8 +249,17 @@ export default function CertificateModal({
                     loading="lazy"
                     onContextMenu={(e) => e.preventDefault()}
                   />
+                  {/* Dynamic Watermark Overlay for Image */}
+                  <div className="absolute inset-0 pointer-events-none select-none overflow-hidden flex flex-col justify-around opacity-[0.06] rotate-[-15deg] scale-125 z-10">
+                    {Array.from({ length: 6 }).map((_, i) => (
+                      <div key={i} className="flex justify-around text-[9px] sm:text-[11px] font-mono tracking-widest text-neon-cyan whitespace-nowrap select-none">
+                        <span>DANY PRETEL · COPIA PROTEGIDA · DNI 62113229 · ACCESO: {timestamp}</span>
+                        <span>DANY PRETEL · COPIA PROTEGIDA · DNI 62113229 · ACCESO: {timestamp}</span>
+                      </div>
+                    ))}
+                  </div>
                   {/* Invisible pointer event absorber overlay */}
-                  <div className="absolute inset-0 bg-transparent cursor-default pointer-events-auto" onContextMenu={(e) => e.preventDefault()} />
+                  <div className="absolute inset-0 bg-transparent cursor-default pointer-events-auto z-20" onContextMenu={(e) => e.preventDefault()} />
                 </div>
               )}
             </div>
