@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { fadeUp, staggerContainer, pageTransition } from '@/utils/animations';
 import { usePageMeta } from '@/hooks/usePageMeta';
@@ -136,6 +137,42 @@ export default function Contact() {
                     )}
                   </motion.div>
                 ))}
+              </div>
+            </motion.div>
+
+            {/* CV Download & Print Card */}
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              className="terminal-window p-8 flex flex-col justify-center relative overflow-hidden w-full border-t-4 border-neon-cyan"
+            >
+              <div className="terminal-header -mx-8 -mt-8 mb-6 w-[calc(100%+4rem)]">
+                <div className="terminal-dot dot-red" />
+                <div className="terminal-dot dot-yellow" />
+                <div className="terminal-dot dot-green" />
+                <span className="ml-4 text-xs font-mono text-text-muted">curriculum_vitae.sh</span>
+              </div>
+              
+              <p className="text-sm font-mono text-text-secondary mb-6 leading-relaxed">
+                Descarga mi CV en formato de Word para evaluación, o abre la versión optimizada para imprimir y guardar como PDF en un clic.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 w-full">
+                <Link
+                  to="/cv"
+                  className="flex-1 px-4 py-3 bg-neon-cyan/10 hover:bg-neon-cyan text-neon-cyan hover:text-black border border-neon-cyan/50 hover:shadow-[0_0_15px_rgba(0,242,254,0.3)] text-xs font-mono font-bold uppercase tracking-wider text-center transition-all duration-300 rounded cursor-pointer"
+                >
+                  &gt; Ver / Imprimir CV
+                </Link>
+                
+                <a
+                  href={`${import.meta.env.BASE_URL}CV_Dany_Pretel.doc`}
+                  download="CV_Dany_Pretel.doc"
+                  className="flex-1 px-4 py-3 bg-transparent hover:bg-white/5 text-white border border-white/20 text-xs font-mono font-bold uppercase tracking-wider text-center transition-all duration-300 rounded cursor-pointer"
+                >
+                  $ Descargar Word (.doc)
+                </a>
               </div>
             </motion.div>
 
