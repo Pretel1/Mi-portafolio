@@ -39,7 +39,7 @@ https.get(qrUrl, (res) => {
 
 function generateDoc(profileB64, qrB64) {
   const profileImgHtml = profileB64 
-    ? `<img src="data:image/png;base64,${profileB64}" width="100" height="100" style="border-radius: 50px; border: 1px solid #000000;" />`
+    ? `<img src="data:image/png;base64,${profileB64}" width="160" height="160" style="border-radius: 80px; border: 1.5pt solid #000000;" />`
     : '[FOTO PROFESIONAL]';
 
   const qrImgHtml = qrB64
@@ -86,7 +86,7 @@ function generateDoc(profileB64, qrB64) {
     .header-photo {
       vertical-align: middle;
       text-align: right;
-      width: 110px;
+      width: 175px;
     }
     .name {
       font-family: 'Segoe UI', Arial, sans-serif;

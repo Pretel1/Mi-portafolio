@@ -118,7 +118,7 @@ export default function CV() {
               <img
                 src={`${import.meta.env.BASE_URL}images/profile_circle.png`}
                 alt="Foto de Perfil"
-                className="w-24 h-24 sm:w-28 sm:h-28 border border-white/10 p-1 rounded-full bg-dark-950/40 print:bg-white print:border-black print:p-0.5"
+                className="w-40 h-40 object-cover border-2 border-neon-cyan/30 p-1 rounded-full bg-dark-950/40 shadow-[0_0_15px_rgba(0,242,254,0.15)] hover:border-neon-cyan hover:shadow-[0_0_25px_rgba(0,242,254,0.35)] transition-all duration-300 print:w-36 print:h-36 print:border-black print:p-0.5 print:shadow-none print:transition-none"
                 loading="lazy"
               />
             </div>
