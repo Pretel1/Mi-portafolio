@@ -208,8 +208,8 @@ export default function Certificates() {
           <h1 className="text-4xl sm:text-6xl md:text-8xl font-display font-bold tracking-tighter mb-4">
             Credenciales
           </h1>
-          <p className="text-text-secondary text-lg font-mono max-w-2xl">
-            Un registro completo de certificaciones profesionales, entrenamiento técnico y honores militares.
+          <p className="text-text-secondary text-lg font-mono max-w-3xl">
+            Cada certificación representa un paso en mi camino de aprendizaje. No pretendo saberlo todo, sino estar listo para aplicar el conocimiento y seguir evolucionando.
           </p>
         </div>
 

@@ -9,7 +9,7 @@ import { usePageMeta } from '@/hooks/usePageMeta';
 export default function Home() {
   usePageMeta({
     title: 'Dany Pretel — Ingeniero de Ciberseguridad',
-    description: 'Portafolio de Dany Jose Pretel Huamanvilca. Futuro ingeniero de ciberseguridad con hambre de conocimiento. Certificado en CCNA, Ethical Hacking y Data Science. Construyendo el futuro desde Arequipa, Perú.',
+    description: 'Portafolio de Dany Jose Pretel Huamanvilca. Futuro ingeniero de ciberseguridad. Enfoque en el aprendizaje constante, humildad para seguir creciendo y la visión de liderar proyectos extraordinarios.',
   });
 
   useEffect(() => {
@@ -64,10 +64,10 @@ export default function Home() {
           </div>
 
           {/* Subtitle */}
-          <motion.div variants={fadeUp} className="mb-12 max-w-2xl mx-auto">
+          <motion.div variants={fadeUp} className="mb-12 max-w-3xl mx-auto">
             <p className="text-lg sm:text-xl text-text-secondary font-mono tracking-wide leading-relaxed">
-              <span className="text-neon-cyan">Futuro Ingeniero de Ciberseguridad</span> con hambre de conocimiento.<br/>
-              Mi objetivo: dominar cada sistema, cada red, cada vulnerabilidad.
+              <span className="text-neon-cyan">Futuro Ingeniero de Ciberseguridad</span> con mentalidad de aprendizaje continuo.<br/>
+              Tengo la humildad para aprender lo que no sé, la agilidad para aplicarlo rápido y la visión de crear y liderar el futuro tecnológico.
             </p>
           </motion.div>
 

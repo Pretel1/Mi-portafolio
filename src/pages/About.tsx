@@ -20,7 +20,7 @@ const SKILLS = [
 export default function About() {
   usePageMeta({
     title: 'Sobre Mí',
-    description: 'Conoce a Dany Pretel: futuro ingeniero de ciberseguridad con hambre insaciable de conocimiento. Certificado en CCNA y Ethical Hacking. Mi objetivo es comerme al mundo.',
+    description: 'Conoce a Dany Pretel: futuro ingeniero de ciberseguridad. Humildad para aprender, agilidad para aplicar conocimientos y la visión de llevar proyectos a límites inalcanzables.',
   });
 
   useEffect(() => {
@@ -48,7 +48,7 @@ export default function About() {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="mt-6 text-lg md:text-xl text-text-secondary font-mono max-w-3xl"
           >
-            Aprendiendo sin límites, construyendo sin parar. Mi misión es absorber todo el conocimiento posible y convertirlo en impacto real.
+            Humildad para aprender desde cero, agilidad para aplicar y visión para liderar proyectos extraordinarios. Siempre un paso adelante.
           </motion.p>
         </div>
 
@@ -59,13 +59,13 @@ export default function About() {
             <h3 className="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-6">// Perfil Profesional</h3>
             <div className="space-y-4 text-base md:text-lg text-text-secondary font-mono leading-relaxed">
               <p>
-                Soy <span className="text-neon-cyan font-semibold">Futuro Ingeniero de Ciberseguridad</span> en SENATI (4to semestre), con una mentalidad simple: <span className="text-white font-semibold">aprender todo lo que pueda, lo más rápido posible</span>. Formación en algoritmia, redes, sistemas operativos (Linux, Kali Linux, Windows) y una obsesión por entender cómo funcionan las cosas por dentro.
+                Soy <span className="text-neon-cyan font-semibold">Futuro Ingeniero de Ciberseguridad</span> en SENATI (4to semestre). Tengo varias certificaciones y cursos, pero no pretendo saberlo todo. Mi verdadero valor radica en la <span className="text-white font-semibold">humildad para aprender constantemente</span> y la determinación para implementar de inmediato cada nuevo conocimiento que adquiero.
               </p>
               <p>
-                Certificado en <span className="text-neon-green font-semibold">Ethical Hacking</span> y <span className="text-neon-green font-semibold">CCNA</span>, pero eso es solo el comienzo. Cada certificación es un escalón, no la meta. Soy licenciado del <span className="text-white font-semibold border-b border-white/30 pb-0.5">Servicio Militar</span>, donde aprendí que la disciplina y la presión no son obstáculos — son combustible.
+                Suelo ir un paso adelante en los temas que me apasionan. Y si me encuentro con algo que desconozco, no me detengo: lo investigo, lo asimilo y <span className="text-neon-green font-semibold">lo aprendo en ese mismo instante</span>. Para mí, herramientas como la IA no son rivales, sino poderosas aliadas que optimizan mi capacidad de análisis y síntesis.
               </p>
               <p>
-                <span className="text-neon-cyan font-semibold">Mi objetivo es comerme al mundo.</span> Busco una práctica preprofesional donde pueda demostrar que el hambre de conocimiento vale más que los años de experiencia.
+                Tengo la mente llena de ideas, imagino interfaces y soluciones constantemente. Mi meta a largo plazo es grande: <span className="text-neon-cyan font-semibold">crear mi propia empresa y llevar proyectos tecnológicos a niveles inalcanzables</span>. Busco una oportunidad donde pueda demostrar esta visión y seguir creciendo.
               </p>
             </div>
           </motion.div>

@@ -281,8 +281,8 @@ export default function Navbar() {
                 
                 <div className="p-3.5 rounded-lg border border-white/5 bg-dark-950/40 text-[8px] font-mono text-text-muted space-y-0.5 select-none">
                   <div>&gt;_ USER: guest@pretel.sys</div>
-                  <div>&gt;_ MODE: ALWAYS_LEARNING</div>
-                  <div>&gt;_ GOAL: CONQUER_THE_WORLD</div>
+                  <div>&gt;_ MINDSET: HUMBLE_BUT_AMBITIOUS</div>
+                  <div>&gt;_ GOAL: CREATE_AND_INNOVATE</div>
                 </div>
               </div>
             </motion.div>
