@@ -33,7 +33,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="relative border-t border-white/10 bg-dark-950 mt-auto">
+    <footer className="relative border-t border-white/10 bg-dark-950 mt-auto no-print">
       {/* Hacker style top border line */}
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-neon-cyan to-transparent opacity-50" />
 

@@ -171,12 +171,43 @@ img, iframe {
 
 /* ═══════ Security: Print Protection ═══════ */
 @media print {
-  body, html, #root {
+  body:not(.allow-print), html:not(.allow-print), #root:not(.allow-print) {
     display: none !important;
     visibility: hidden !important;
     height: 0 !important;
     overflow: hidden !important;
   }
+  
+  body.allow-print {
+    background: white !important;
+    color: black !important;
+    overflow: visible !important;
+    user-select: text !important;
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+  }
+  
+  body.allow-print #root {
+    display: block !important;
+    visibility: visible !important;
+    background: white !important;
+    color: black !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  body.allow-print .no-print {
+    display: none !important;
+  }
+
+  body.allow-print .print-only {
+    display: block !important;
+  }
+}
+
+.print-only {
+  display: none;
 }
 
 /* ═══════ HUD Laser Scan Line ═══════ */
