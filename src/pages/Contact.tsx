@@ -89,7 +89,7 @@ export default function Contact() {
             Iniciar Conexión
           </h1>
           <p className="text-text-secondary text-lg font-mono">
-            ¿Buscas a alguien con la visión de crear en grande y la humildad para aprender e implementar lo que sea necesario? Conectemos.
+            ¿Buscas a alguien con la visión de crear en grande y la humildad para aprender e implementar lo que sea necesario? Hablemos de lo que podemos construir.
           </p>
         </div>
 
