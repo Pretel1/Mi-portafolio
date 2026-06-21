@@ -20,7 +20,7 @@ const SKILLS = [
 export default function About() {
   usePageMeta({
     title: 'Sobre Mí',
-    description: 'Conoce a Dany Pretel: estudiante de Ingeniería de Ciberseguridad en SENATI, licenciado militar, certificado en CCNA y Ethical Hacking. Arequipa, Perú.',
+    description: 'Conoce a Dany Pretel: futuro ingeniero de ciberseguridad con hambre insaciable de conocimiento. Certificado en CCNA y Ethical Hacking. Mi objetivo es comerme al mundo.',
   });
 
   useEffect(() => {
@@ -48,7 +48,7 @@ export default function About() {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="mt-6 text-lg md:text-xl text-text-secondary font-mono max-w-3xl"
           >
-            Explorando vulnerabilidades, asegurando infraestructuras y escalando sistemas de TI para la nueva era digital.
+            Aprendiendo sin límites, construyendo sin parar. Mi misión es absorber todo el conocimiento posible y convertirlo en impacto real.
           </motion.p>
         </div>
 
@@ -59,13 +59,13 @@ export default function About() {
             <h3 className="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-6">// Perfil Profesional</h3>
             <div className="space-y-4 text-base md:text-lg text-text-secondary font-mono leading-relaxed">
               <p>
-                Soy <span className="text-neon-cyan font-semibold">Estudiante de Ingeniería de Ciberseguridad</span> en SENATI (cursando el 4to semestre), con formación previa en Algoritmia, programación básica, redes y sistemas operativos (Linux, Kali Linux, Windows).
+                Soy <span className="text-neon-cyan font-semibold">Futuro Ingeniero de Ciberseguridad</span> en SENATI (4to semestre), con una mentalidad simple: <span className="text-white font-semibold">aprender todo lo que pueda, lo más rápido posible</span>. Formación en algoritmia, redes, sistemas operativos (Linux, Kali Linux, Windows) y una obsesión por entender cómo funcionan las cosas por dentro.
               </p>
               <p>
-                Cuento con certificaciones complementarias en <span className="text-neon-green font-semibold">hacking ético</span> y <span className="text-neon-green font-semibold">redes (CCNA)</span>. Soy una persona disciplinada y autodidacta, con licenciamiento del <span className="text-white font-semibold border-b border-white/30 pb-0.5">Servicio Militar</span> que reforzó mi capacidad de trabajo en equipo, disciplina y manejo de responsabilidades bajo presión.
+                Certificado en <span className="text-neon-green font-semibold">Ethical Hacking</span> y <span className="text-neon-green font-semibold">CCNA</span>, pero eso es solo el comienzo. Cada certificación es un escalón, no la meta. Soy licenciado del <span className="text-white font-semibold border-b border-white/30 pb-0.5">Servicio Militar</span>, donde aprendí que la disciplina y la presión no son obstáculos — son combustible.
               </p>
               <p>
-                Busco una práctica preprofesional donde pueda aplicar y fortalecer mis conocimientos técnicos en un entorno empresarial real.
+                <span className="text-neon-cyan font-semibold">Mi objetivo es comerme al mundo.</span> Busco una práctica preprofesional donde pueda demostrar que el hambre de conocimiento vale más que los años de experiencia.
               </p>
             </div>
           </motion.div>

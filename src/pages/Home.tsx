@@ -9,7 +9,7 @@ import { usePageMeta } from '@/hooks/usePageMeta';
 export default function Home() {
   usePageMeta({
     title: 'Dany Pretel — Ingeniero de Ciberseguridad',
-    description: 'Portafolio profesional de Dany Jose Pretel Huamanvilca. Estudiante de Ingeniería de Ciberseguridad en SENATI, certificado en CCNA, Ethical Hacking y Data Science. Arequipa, Perú.',
+    description: 'Portafolio de Dany Jose Pretel Huamanvilca. Futuro ingeniero de ciberseguridad con hambre de conocimiento. Certificado en CCNA, Ethical Hacking y Data Science. Construyendo el futuro desde Arequipa, Perú.',
   });
 
   useEffect(() => {
@@ -52,7 +52,7 @@ export default function Home() {
           <motion.div variants={fadeUp} className="mb-8">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-mono font-medium uppercase tracking-widest text-neon-green border border-neon-green/30 bg-neon-green/5 rounded shadow-[0_0_15px_rgba(0,255,135,0.15)]">
               <span className="w-2 h-2 rounded-full bg-neon-green animate-pulse" aria-hidden="true" />
-              Sistema Activo // Listo para Conexión
+              Modo Aprendizaje // Siempre Activo
             </span>
           </motion.div>
 
@@ -66,8 +66,8 @@ export default function Home() {
           {/* Subtitle */}
           <motion.div variants={fadeUp} className="mb-12 max-w-2xl mx-auto">
             <p className="text-lg sm:text-xl text-text-secondary font-mono tracking-wide leading-relaxed">
-              <span className="text-neon-cyan">Estudiante de Ingeniería de Ciberseguridad</span> en SENATI.<br/>
-              Construyendo sistemas seguros e infraestructura escalable.
+              <span className="text-neon-cyan">Futuro Ingeniero de Ciberseguridad</span> con hambre de conocimiento.<br/>
+              Mi objetivo: dominar cada sistema, cada red, cada vulnerabilidad.
             </p>
           </motion.div>
 

@@ -46,7 +46,7 @@ export default function Certificates() {
 
   usePageMeta({
     title: 'Credenciales',
-    description: 'Certificaciones profesionales de Dany Pretel: CCNA, Ethical Hacker, Data Science, Red Hat y más. Verificables en Credly.',
+    description: 'Cada certificación es un escalón, no la meta. CCNA, Ethical Hacker, Data Science, Red Hat y más. Verificables en Credly.',
   });
 
   useEffect(() => {

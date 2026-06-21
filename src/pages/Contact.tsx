@@ -21,7 +21,7 @@ export default function Contact() {
 
   usePageMeta({
     title: 'Contacto',
-    description: 'Contacta a Dany Pretel. Disponible para prácticas preprofesionales y colaboraciones en ciberseguridad. Arequipa, Perú.',
+    description: 'Contacta a Dany Pretel. Buscando oportunidades para aprender, crecer y demostrar que el hambre de conocimiento no tiene límites.',
   });
 
   useEffect(() => {
@@ -89,7 +89,7 @@ export default function Contact() {
             Iniciar Conexión
           </h1>
           <p className="text-text-secondary text-lg font-mono">
-            Disponible para oportunidades profesionales y colaboraciones.
+            Listo para aprender, crecer y aportar. Si buscas a alguien con hambre de conocimiento, hablémos.
           </p>
         </div>
 
