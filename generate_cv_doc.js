@@ -6,7 +6,7 @@ import path from 'path';
 const profilePath = 'public/images/profile.png';
 const outputPath = 'public/CV_Dany_Pretel.doc';
 
-console.log('Generating CV document according to template...');
+console.log('Generating CV document according to template with corrections...');
 
 // Read profile image to Base64
 let profileBase64 = '';
@@ -39,7 +39,7 @@ https.get(qrUrl, (res) => {
 
 function generateDoc(profileB64, qrB64) {
   const profileImgHtml = profileB64 
-    ? `<img src="data:image/png;base64,${profileB64}" width="105" height="105" style="border: 1px solid #000000; padding: 2px;" />`
+    ? `<img src="data:image/png;base64,${profileB64}" width="100" height="100" style="border-radius: 50px; border: 1px solid #000000;" />`
     : '[FOTO PROFESIONAL]';
 
   const qrImgHtml = qrB64
@@ -63,105 +63,103 @@ function generateDoc(profileB64, qrB64) {
   <style>
     @page {
       size: A4;
-      margin: 1.5cm 1.5cm 1.5cm 1.5cm;
+      margin: 2cm 2cm 2cm 2cm;
     }
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
-      font-size: 10pt;
+      font-size: 10.5pt;
       line-height: 1.4;
       color: #333333;
       background-color: #ffffff;
     }
-    .cv-box {
-      border: 1.5pt solid #333333;
-      padding: 24px;
+    .cv-container {
       background-color: #ffffff;
     }
     .header-table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
     .header-info {
-      vertical-align: top;
+      vertical-align: middle;
     }
     .header-photo {
-      vertical-align: top;
+      vertical-align: middle;
       text-align: right;
-      width: 120px;
+      width: 110px;
     }
     .name {
       font-family: 'Segoe UI', Arial, sans-serif;
-      font-size: 22pt;
+      font-size: 24pt;
       font-weight: bold;
       color: #000000;
       line-height: 1.1;
-      margin: 0 0 4px 0;
+      margin: 0 0 5px 0;
     }
     .title {
-      font-size: 12pt;
+      font-size: 13pt;
       font-weight: bold;
       color: #333333;
-      margin: 0 0 10px 0;
+      margin: 0 0 15px 0;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
     .contact-info {
-      font-size: 9pt;
+      font-size: 9.5pt;
       color: #555555;
       line-height: 1.5;
     }
     .section-title {
       font-family: 'Segoe UI', Arial, sans-serif;
-      font-size: 11pt;
+      font-size: 12pt;
       font-weight: bold;
       color: #000000;
       border-bottom: 1.5pt solid #333333;
-      padding-bottom: 3px;
-      margin-top: 20px;
-      margin-bottom: 10px;
+      padding-bottom: 4px;
+      margin-top: 25px;
+      margin-bottom: 12px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
     .profile-text {
-      font-size: 9.5pt;
+      font-size: 10pt;
       text-align: justify;
       color: #333333;
-      line-height: 1.45;
-      margin-bottom: 15px;
+      line-height: 1.5;
+      margin-bottom: 18px;
     }
     .exp-item {
       margin-bottom: 15px;
     }
     .exp-header {
       font-weight: bold;
-      font-size: 10pt;
+      font-size: 10.5pt;
       color: #000000;
     }
     .exp-subheader {
       font-style: italic;
-      font-size: 9pt;
-      color: #666666;
+      font-size: 9.5pt;
+      color: #555555;
       margin-bottom: 4px;
     }
     .functions-title {
       font-weight: bold;
-      font-size: 9pt;
+      font-size: 9.5pt;
       color: #333333;
-      margin-top: 4px;
+      margin-top: 5px;
       margin-bottom: 2px;
     }
     .logros-title {
       font-weight: bold;
-      font-size: 9pt;
+      font-size: 9.5pt;
       color: #333333;
-      margin-top: 4px;
+      margin-top: 5px;
       margin-bottom: 2px;
     }
     .bullet-list {
       margin: 0 0 10px 0;
       padding-left: 20px;
-      font-size: 9pt;
+      font-size: 9.5pt;
       color: #444444;
     }
     .bullet-list li {
@@ -179,7 +177,7 @@ function generateDoc(profileB64, qrB64) {
     .detail-list {
       margin: 0;
       padding-left: 15px;
-      font-size: 9pt;
+      font-size: 9.5pt;
       color: #444444;
     }
     .detail-list li {
@@ -188,14 +186,14 @@ function generateDoc(profileB64, qrB64) {
     .qr-table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 25px;
+      margin-top: 30px;
       border-top: 1px solid #dddddd;
       padding-top: 15px;
     }
     .qr-text {
       vertical-align: middle;
-      font-size: 8pt;
-      color: #777777;
+      font-size: 8.5pt;
+      color: #666666;
       line-height: 1.4;
     }
     .qr-code {
@@ -206,7 +204,7 @@ function generateDoc(profileB64, qrB64) {
   </style>
 </head>
 <body>
-  <div class="cv-box">
+  <div class="cv-container">
     
     <!-- HEADER -->
     <table class="header-table">
@@ -235,55 +233,36 @@ function generateDoc(profileB64, qrB64) {
 
     <div class="exp-item">
       <div class="exp-header">EJÉRCITO DEL PERÚ</div>
-      <div class="exp-subheader">Cargo: Instructor Militar (Licenciado) | 2022 — 2024</div>
+      <div class="exp-subheader">Cargo: Licenciado del Servicio Militar Voluntario / Instructor Militar | 2020 — 2022</div>
       
       <div class="functions-title">Funciones:</div>
       <ul class="bullet-list">
-        <li>Planificar y dictar materias de instrucción militar a personal recluta bajo las normas de disciplina vigentes.</li>
-        <li>Coordinar el entrenamiento físico, táctico y técnico de escuadras de operaciones de seguridad.</li>
-        <li>Supervisar el cumplimiento de protocolos de seguridad física y control de accesos en instalaciones militares.</li>
+        <li>Impartir instrucción militar básica y entrenamiento físico al personal de nuevos contingentes.</li>
+        <li>Cumplir con los servicios tácticos y operativos de resguardo y seguridad de las instalaciones.</li>
+        <li>Mantener la disciplina, el orden y el cumplimiento de los reglamentos del servicio militar vigente.</li>
       </ul>
       
       <div class="logros-title">Logros:</div>
       <ul class="bullet-list">
-        <li>Formar con éxito a más de 100 soldados reclutas en tácticas básicas, disciplina y valores institucionales.</li>
-        <li>Optimizar el plan de instrucción del contingente militar, reduciendo los tiempos de asimilación de protocolos tácticos de seguridad en un 20%.</li>
-      </ul>
-    </div>
-
-    <div class="exp-item" style="margin-bottom: 5px;">
-      <div class="exp-header">PROYECTOS Y IMPLEMENTACIONES DE CIBERSEGURIDAD</div>
-      <div class="exp-subheader">Cargo: Especialista Técnico / Administrador Junior de Laboratorios | 2025 — Presente</div>
-      
-      <div class="functions-title">Funciones:</div>
-      <ul class="bullet-list">
-        <li>Diseñar e implementar esquemas de direccionamiento IP y topologías de red en simuladores Cisco Packet Tracer.</li>
-        <li>Realizar auditorías de seguridad y análisis de vulnerabilidades mediante entornos Linux Kali en laboratorios de pruebas.</li>
-        <li>Administrar y securizar sistemas basados en servidores Red Hat Enterprise Linux y Windows Client/Server.</li>
-      </ul>
-      
-      <div class="logros-title">Logros:</div>
-      <ul class="bullet-list">
-        <li>Configurar e integrar topologías complejas de enrutamiento y conmutación (CCNA), alcanzando una tasa de disponibilidad del servicio del 100% en simulaciones académicas.</li>
-        <li>Identificar y mitigar puertos vulnerables y configuraciones inseguras en entornos de pruebas, elevando la resiliencia de los sistemas simulados.</li>
-        <li>Implementar políticas de control de versiones y documentación ágil en GitHub para proyectos colaborativos, optimizando la trazabilidad de los desarrollos en un 30%.</li>
+        <li>Destacar por disciplina y conducta, obteniendo el licenciamiento y designación como Instructor Militar.</li>
+        <li>Cumplir satisfactoriamente con el Servicio Militar Voluntario con legajo impecable.</li>
       </ul>
     </div>
 
     <!-- FORMACION PROFESIONAL -->
     <div class="section-title">Formación Profesional</div>
-    <div class="exp-item" style="margin-bottom: 5px;">
-      <div class="exp-header">Ingeniería en Ciberseguridad (Pre Grado Técnico Profesional)</div>
-      <div class="exp-subheader">SENATI · Arequipa, Perú | 2026 — Presente (4to Semestre)</div>
+    <div class="exp-item" style="margin-bottom: 8px;">
+      <div class="exp-header">Ingeniería de Ciberseguridad (Carrera Técnica)</div>
+      <div class="exp-subheader">SENATI · Arequipa, Perú | 2025 — Presente (4to Semestre)</div>
     </div>
-    <div class="exp-item" style="margin-bottom: 5px;">
+    <div class="exp-item" style="margin-bottom: 8px;">
       <div class="exp-header">Licenciamiento del Servicio Militar Voluntario & Especialidad de Instructor</div>
-      <div class="exp-subheader">Fuerzas Armadas del Perú | 2022 — 2024</div>
+      <div class="exp-subheader">Fuerzas Armadas del Perú | UNIDAD: CEMOV_COSTA | FECHA DE ALTA: 01 JUL 2020 — FECHA DE BAJA: 23 JUN 2022 | ARMA: INFANTERÍA</div>
     </div>
 
     <!-- FORMACION COMPLEMENTARIA -->
     <div class="section-title">Formación Complementaria</div>
-    <ul class="bullet-list" style="margin-bottom: 10px;">
+    <ul class="bullet-list" style="margin-bottom: 12px;">
       <li><b>CCNA: Introducción a Redes</b> - Cisco Networking Academy · SENATI, 70 horas, 2026.</li>
       <li><b>Hacker Ético</b> - CyberGames · Cisco · UTP, 70 horas, 2026.</li>
       <li><b>Red Hat System Administration I (Asistencia)</b> - SENATI, 2026.</li>
@@ -296,7 +275,7 @@ function generateDoc(profileB64, qrB64) {
     <!-- IDIOMAS & INFORMATICA & RECONOCIMIENTOS -->
     <table class="two-columns-table">
       <tr>
-        <td class="col-cell" style="padding-right: 10px;">
+        <td class="col-cell" style="padding-right: 15px;">
           <div class="section-title" style="margin-top: 0;">Idiomas</div>
           <ul class="detail-list">
             <li><b>Español:</b> Nativo</li>
@@ -305,7 +284,7 @@ function generateDoc(profileB64, qrB64) {
             <li><b>Portugués:</b> Básico</li>
           </ul>
         </td>
-        <td class="col-cell" style="padding-left: 10px; border-left: 1px solid #dddddd;">
+        <td class="col-cell" style="padding-left: 15px;">
           <div class="section-title" style="margin-top: 0;">Informática</div>
           <ul class="detail-list">
             <li><b>Sistemas Operativos:</b> Linux (Kali Linux, Red Hat Enterprise Linux, Ubuntu), Windows Server/Client.</li>
@@ -317,14 +296,14 @@ function generateDoc(profileB64, qrB64) {
     </table>
 
     <div class="section-title">Reconocimientos / Voluntariados</div>
-    <ul class="bullet-list" style="margin-bottom: 10px;">
+    <ul class="bullet-list" style="margin-bottom: 12px;">
       <li>Licenciado con Licencia Militar de Primera Clase, Ejército del Perú.</li>
       <li>Certificación de Especialidad y Desempeño Sobresaliente como Instructor Militar.</li>
     </ul>
 
     <!-- DATOS PERSONALES -->
     <div class="section-title">Datos Personales</div>
-    <table style="width: 100%; border-collapse: collapse; font-size: 9pt; color: #555555; margin-bottom: 10px;">
+    <table style="width: 100%; border-collapse: collapse; font-size: 9.5pt; color: #555555; margin-bottom: 15px;">
       <tr>
         <td style="padding: 2px 0; width: 25%;"><b>DNI:</b></td>
         <td style="padding: 2px 0; width: 25%;">62113229</td>
@@ -345,7 +324,7 @@ function generateDoc(profileB64, qrB64) {
         <td class="qr-text">
           <b>VERIFICACIÓN DIGITAL DEL CURRÍCULUM:</b><br/>
           Este documento de CV cuenta con una versión digital en línea.<br/>
-          Escanee el código QR adjunto para acceder a las credenciales verificables en Credly y ver los detalles actualizados del portafolio.
+          Escanee el código QR adjunto para acceder a las credenciales verificables en Credly y ver los detalles actualizados del portafolio en vivo.
         </td>
         <td class="qr-code">
           ${qrImgHtml}
