@@ -179,7 +179,7 @@ export default function CV() {
                   </li>
                   <li className="flex justify-between">
                     <span className="text-white print:text-black">Inglés</span>
-                    <span className="text-text-muted print:text-black/60">En curso</span>
+                    <span className="text-text-muted print:text-black/60">B2 (English for IT 1)</span>
                   </li>
                   <li className="flex justify-between">
                     <span className="text-white print:text-black">Portugués</span>
@@ -301,6 +301,13 @@ export default function CV() {
                     <div>
                       <p className="font-semibold text-white print:text-black">Red Hat System Administration I</p>
                       <p className="text-[10px] text-text-muted print:text-black/60">SENATI · Curso de Especialización</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-1">
+                    <span className="text-neon-green print:text-black/70">•</span>
+                    <div>
+                      <p className="font-semibold text-white print:text-black">English for IT 1 (Nivel B2)</p>
+                      <p className="text-[10px] text-text-muted print:text-black/60">Cisco · SENATI · 50 horas</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-1">

@@ -266,6 +266,7 @@ function generateDoc(profileB64, qrB64) {
       <li><b>CCNA: Introducción a Redes</b> - Cisco Networking Academy · SENATI, 70 horas, 2026.</li>
       <li><b>Hacker Ético</b> - CyberGames · Cisco · UTP, 70 horas, 2026.</li>
       <li><b>Red Hat System Administration I (Asistencia)</b> - SENATI, 2026.</li>
+      <li><b>English for IT 1 (Nivel B2)</b> - Cisco Networking Academy · SENATI, 50 horas, 2026.</li>
       <li><b>Conceptos Básicos de Redes</b> - Cisco · SENATI, 22 horas, 2025.</li>
       <li><b>Introducción a la Ciencia de Datos</b> - Cisco · SENATI, 6 horas, 2025.</li>
       <li><b>Conceptos Básicos de Hardware</b> - Cisco · SENATI, 6 horas, 2025.</li>
@@ -280,7 +281,7 @@ function generateDoc(profileB64, qrB64) {
           <ul class="detail-list">
             <li><b>Español:</b> Nativo</li>
             <li><b>Quechua:</b> Nativo (Comunicación fluida)</li>
-            <li><b>Inglés:</b> En curso (Academia)</li>
+            <li><b>Inglés:</b> Nivel B2 - Certificación English for IT 1 (Cisco · SENATI)</li>
             <li><b>Portugués:</b> Básico</li>
           </ul>
         </td>

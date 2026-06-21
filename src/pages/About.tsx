@@ -180,7 +180,7 @@ export default function About() {
               </div>
               <div className="flex justify-between items-center border-b border-white/5 pb-2">
                 <h4 className="text-sm font-mono text-white">Inglés</h4>
-                <span className="text-[10px] font-mono text-yellow-500 px-2 py-1 rounded border border-yellow-500/30 bg-yellow-500/5">En curso</span>
+                <span className="text-[10px] font-mono text-yellow-500 px-2 py-1 rounded border border-yellow-500/30 bg-yellow-500/5">B2 (English for IT 1)</span>
               </div>
               <div className="flex justify-between items-center">
                 <h4 className="text-sm font-mono text-white">Portugués</h4>

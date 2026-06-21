@@ -91,12 +91,19 @@ export default function Certificates() {
               </div>
 
               {/* Decrypted Actual Image - Fades in on Hover (Blurred to prevent screen capture in grid) */}
-              <img
-                src={getCertUrl(cert.filename)}
-                alt={`Miniatura de ${cert.title}`}
-                className="w-full h-full object-contain object-center filter blur-[12px] group-hover:blur-[8px] brightness-[0.25] group-hover:brightness-[0.45] group-hover:scale-102 transition-all duration-500 opacity-0 group-hover:opacity-100 z-0 select-none pointer-events-none p-2"
-                loading="lazy"
-              />
+              {cert.type === 'pdf' ? (
+                <div className="w-full h-full flex flex-col items-center justify-center bg-dark-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0 p-4 select-none pointer-events-none">
+                  <span className="text-4xl filter drop-shadow-[0_0_10px_rgba(0,242,254,0.3)]">📄</span>
+                  <span className="text-[10px] font-mono text-neon-cyan mt-2">DOCUMENTO PDF</span>
+                </div>
+              ) : (
+                <img
+                  src={getCertUrl(cert.filename)}
+                  alt={`Miniatura de ${cert.title}`}
+                  className="w-full h-full object-contain object-center filter blur-[12px] group-hover:blur-[8px] brightness-[0.25] group-hover:brightness-[0.45] group-hover:scale-102 transition-all duration-500 opacity-0 group-hover:opacity-100 z-0 select-none pointer-events-none p-2"
+                  loading="lazy"
+                />
+              )}
               
               {/* Hover Secured Overlay */}
               <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 z-10 pointer-events-none transition-opacity duration-500 p-4">
