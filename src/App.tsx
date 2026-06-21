@@ -9,6 +9,7 @@ import ScrollProgress from '@/components/common/ScrollProgress';
 // Pages
 import Home from '@/pages/Home';
 import About from '@/pages/About';
+import CV from '@/pages/CV';
 import Certificates from '@/pages/Certificates';
 import Contact from '@/pages/Contact';
 
@@ -22,9 +23,14 @@ export default function App() {
 
     const handleKeyDown = (e: KeyboardEvent) => {
       // Block Ctrl+P / Cmd+P (Print)
+      // Allow printing ONLY on the CV route
+      const isCvRoute = window.location.hash === '#/cv' || window.location.pathname.endsWith('/cv');
+      
       if ((e.ctrlKey || e.metaKey) && (e.key === 'p' || e.key === 'P')) {
-        e.preventDefault();
-        e.stopPropagation();
+        if (!isCvRoute) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
       }
       // Block Ctrl+S / Cmd+S (Save)
       if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S')) {
@@ -66,6 +72,7 @@ export default function App() {
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/cv" element={<CV />} />
             <Route path="/certificates" element={<Certificates />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>

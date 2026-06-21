@@ -3,7 +3,7 @@ import https from 'https';
 import path from 'path';
 
 // Paths
-const profilePath = 'public/images/profile.png';
+const profilePath = 'public/images/profile_circle.png';
 const outputPath = 'public/CV_Dany_Pretel.doc';
 
 console.log('Generating CV document according to template with corrections...');
