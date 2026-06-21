@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { fadeUp, pageTransition, staggerContainer } from '@/utils/animations';
 import AntiScrapeText from '@/components/common/AntiScrapeText';
+import { usePageMeta } from '@/hooks/usePageMeta';
 
 const EMAIL_USER = '1263803';
 const EMAIL_DOMAIN = 'senati.pe';
@@ -17,6 +18,11 @@ const SKILLS = [
 ];
 
 export default function About() {
+  usePageMeta({
+    title: 'Sobre Mí',
+    description: 'Conoce a Dany Pretel: estudiante de Ingeniería de Ciberseguridad en SENATI, licenciado militar, certificado en CCNA y Ethical Hacking. Arequipa, Perú.',
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

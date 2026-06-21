@@ -5,6 +5,7 @@ import { useCertificates } from '@/hooks/useCertificates';
 import { staggerContainer, pageTransition } from '@/utils/animations';
 import { Certificate } from '@/data/certificates';
 import CyberGlobe from '@/components/ui/CyberGlobe';
+import { usePageMeta } from '@/hooks/usePageMeta';
 
 const CATEGORY_LOGS: Record<string, string> = {
   'Redes': 'SYS_NET: IP_ADDR 10.0.0.1 // PORT 80/443 OPEN // CCNA_SCAN: ACTIVE',
@@ -42,6 +43,11 @@ export default function Certificates() {
     navigateCert,
     getCertUrl,
   } = useCertificates();
+
+  usePageMeta({
+    title: 'Credenciales',
+    description: 'Certificaciones profesionales de Dany Pretel: CCNA, Ethical Hacker, Data Science, Red Hat y más. Verificables en Credly.',
+  });
 
   useEffect(() => {
     window.scrollTo(0, 0);

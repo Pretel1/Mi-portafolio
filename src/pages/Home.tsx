@@ -4,8 +4,14 @@ import { Link } from 'react-router-dom';
 import CyberGlobe from '@/components/ui/CyberGlobe';
 import ParticleCanvas from '@/components/ui/ParticleCanvas';
 import { fadeUp, staggerContainer, pageTransition } from '@/utils/animations';
+import { usePageMeta } from '@/hooks/usePageMeta';
 
 export default function Home() {
+  usePageMeta({
+    title: 'Dany Pretel — Ingeniero de Ciberseguridad',
+    description: 'Portafolio profesional de Dany Jose Pretel Huamanvilca. Estudiante de Ingeniería de Ciberseguridad en SENATI, certificado en CCNA, Ethical Hacking y Data Science. Arequipa, Perú.',
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

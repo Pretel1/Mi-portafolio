@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { fadeUp, staggerContainer, pageTransition } from '@/utils/animations';
+import { usePageMeta } from '@/hooks/usePageMeta';
 
 const EMAIL_USER = '1263803';
 const EMAIL_DOMAIN = 'senati.pe';
@@ -17,6 +18,11 @@ const CONTACT_INFO = [
 export default function Contact() {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  usePageMeta({
+    title: 'Contacto',
+    description: 'Contacta a Dany Pretel. Disponible para prácticas preprofesionales y colaboraciones en ciberseguridad. Arequipa, Perú.',
+  });
 
   useEffect(() => {
     window.scrollTo(0, 0);
