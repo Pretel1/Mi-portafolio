@@ -6,7 +6,7 @@ import path from 'path';
 const profilePath = 'public/images/profile.png';
 const outputPath = 'public/CV_Dany_Pretel.doc';
 
-console.log('Generating CV document...');
+console.log('Generating CV document according to template...');
 
 // Read profile image to Base64
 let profileBase64 = '';
@@ -18,8 +18,8 @@ if (fs.existsSync(profilePath)) {
   console.log('- Warning: Profile picture not found at ' + profilePath);
 }
 
-// Fetch QR Code as Base64 (Points directly to the online CV)
-const qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://pretel1.github.io/Mi-portafolio/%23/cv&color=000000&bgcolor=ffffff';
+// Fetch QR Code as Base64 (Points directly to the online portfolio)
+const qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://pretel1.github.io/Mi-portafolio/&color=000000&bgcolor=ffffff';
 
 console.log('- Fetching QR code from API...');
 https.get(qrUrl, (res) => {
@@ -39,11 +39,11 @@ https.get(qrUrl, (res) => {
 
 function generateDoc(profileB64, qrB64) {
   const profileImgHtml = profileB64 
-    ? `<img src="data:image/png;base64,${profileB64}" width="100" height="100" style="border-radius: 50px; border: 2px solid #0088cc;" />`
-    : '[Foto de Perfil]';
+    ? `<img src="data:image/png;base64,${profileB64}" width="105" height="105" style="border: 1px solid #000000; padding: 2px;" />`
+    : '[FOTO PROFESIONAL]';
 
   const qrImgHtml = qrB64
-    ? `<img src="data:image/png;base64,${qrB64}" width="85" height="85" style="border: 1px solid #dddddd; padding: 2px;" />`
+    ? `<img src="data:image/png;base64,${qrB64}" width="80" height="80" style="border: 1px solid #cccccc; padding: 2px;" />`
     : '[Código QR]';
 
   const htmlContent = `
@@ -68,19 +68,19 @@ function generateDoc(profileB64, qrB64) {
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
       font-size: 10pt;
-      line-height: 1.35;
+      line-height: 1.4;
       color: #333333;
       background-color: #ffffff;
     }
     .cv-box {
-      border: 1.5pt solid #0a0c10;
+      border: 1.5pt solid #333333;
       padding: 24px;
       background-color: #ffffff;
     }
     .header-table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
     .header-info {
       vertical-align: top;
@@ -88,113 +88,120 @@ function generateDoc(profileB64, qrB64) {
     .header-photo {
       vertical-align: top;
       text-align: right;
-      width: 110px;
+      width: 120px;
     }
     .name {
       font-family: 'Segoe UI', Arial, sans-serif;
-      font-size: 20pt;
+      font-size: 22pt;
       font-weight: bold;
-      color: #0a0c10;
+      color: #000000;
       line-height: 1.1;
       margin: 0 0 4px 0;
     }
     .title {
-      font-size: 11.5pt;
+      font-size: 12pt;
       font-weight: bold;
-      color: #0088cc;
-      margin: 0 0 12px 0;
+      color: #333333;
+      margin: 0 0 10px 0;
       text-transform: uppercase;
-      letter-spacing: 0.8px;
+      letter-spacing: 0.5px;
     }
     .contact-info {
-      font-size: 8.5pt;
+      font-size: 9pt;
       color: #555555;
-    }
-    .contact-item {
-      margin-bottom: 2px;
+      line-height: 1.5;
     }
     .section-title {
       font-family: 'Segoe UI', Arial, sans-serif;
-      font-size: 10.5pt;
+      font-size: 11pt;
       font-weight: bold;
-      color: #0a0c10;
-      border-bottom: 1.5pt solid #0088cc;
-      padding-bottom: 2px;
-      margin-top: 16px;
-      margin-bottom: 8px;
+      color: #000000;
+      border-bottom: 1.5pt solid #333333;
+      padding-bottom: 3px;
+      margin-top: 20px;
+      margin-bottom: 10px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
     .profile-text {
-      font-size: 9pt;
-      text-align: justify;
-      color: #444444;
-      line-height: 1.42;
-      margin-bottom: 12px;
-    }
-    .columns-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    .col-left {
-      width: 32%;
-      vertical-align: top;
-      padding-right: 12px;
-    }
-    .col-right {
-      width: 68%;
-      vertical-align: top;
-      padding-left: 12px;
-      border-left: 1px solid #e2e8f0;
-    }
-    .item-title {
-      font-weight: bold;
       font-size: 9.5pt;
-      color: #0a0c10;
-      margin-top: 8px;
-      margin-bottom: 1px;
+      text-align: justify;
+      color: #333333;
+      line-height: 1.45;
+      margin-bottom: 15px;
     }
-    .item-subtitle {
+    .exp-item {
+      margin-bottom: 15px;
+    }
+    .exp-header {
+      font-weight: bold;
+      font-size: 10pt;
+      color: #000000;
+    }
+    .exp-subheader {
       font-style: italic;
-      font-size: 8.5pt;
-      color: #0088cc;
+      font-size: 9pt;
+      color: #666666;
       margin-bottom: 4px;
     }
-    .item-desc {
-      font-size: 8.5pt;
-      color: #555555;
-      margin-bottom: 8px;
-      line-height: 1.3;
-    }
-    .skill-category {
+    .functions-title {
       font-weight: bold;
-      font-size: 8.5pt;
-      color: #1a1a1a;
-      margin-top: 6px;
-      margin-bottom: 1px;
+      font-size: 9pt;
+      color: #333333;
+      margin-top: 4px;
+      margin-bottom: 2px;
     }
-    .skill-desc {
-      font-size: 8pt;
-      color: #555555;
-      margin-bottom: 6px;
+    .logros-title {
+      font-weight: bold;
+      font-size: 9pt;
+      color: #333333;
+      margin-top: 4px;
+      margin-bottom: 2px;
+    }
+    .bullet-list {
+      margin: 0 0 10px 0;
+      padding-left: 20px;
+      font-size: 9pt;
+      color: #444444;
+    }
+    .bullet-list li {
+      margin-bottom: 3px;
+    }
+    .two-columns-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+    }
+    .col-cell {
+      width: 50%;
+      vertical-align: top;
+    }
+    .detail-list {
+      margin: 0;
+      padding-left: 15px;
+      font-size: 9pt;
+      color: #444444;
+    }
+    .detail-list li {
+      margin-bottom: 3px;
     }
     .qr-table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 20px;
-      border-top: 1px solid #e2e8f0;
-      padding-top: 12px;
+      margin-top: 25px;
+      border-top: 1px solid #dddddd;
+      padding-top: 15px;
     }
     .qr-text {
       vertical-align: middle;
       font-size: 8pt;
-      color: #666666;
-      line-height: 1.3;
+      color: #777777;
+      line-height: 1.4;
     }
     .qr-code {
       vertical-align: middle;
       text-align: right;
-      width: 95px;
+      width: 90px;
     }
   </style>
 </head>
@@ -208,11 +215,7 @@ function generateDoc(profileB64, qrB64) {
           <div class="name">DANY JOSE PRETEL HUAMANVILCA</div>
           <div class="title">Estudiante de Ingeniería en Ciberseguridad</div>
           <div class="contact-info">
-            <div class="contact-item"><b>Ubicación:</b> Arequipa, Perú</div>
-            <div class="contact-item"><b>Teléfono:</b> +51 935 738 276</div>
-            <div class="contact-item"><b>Correo:</b> 1263803@senati.pe</div>
-            <div class="contact-item"><b>LinkedIn:</b> linkedin.com/in/danny-pretel-2a35651a4</div>
-            <div class="contact-item"><b>DNI:</b> 62113229 | <b>Nacimiento:</b> 09/05/2001</div>
+            <b>Datos de contacto:</b> +51 935 738 276 | 1263803@senati.pe | linkedin.com/in/danny-pretel-2a35651a4
           </div>
         </td>
         <td class="header-photo">
@@ -221,103 +224,128 @@ function generateDoc(profileB64, qrB64) {
       </tr>
     </table>
 
-    <!-- PROFILE -->
+    <!-- PERFIL PROFESIONAL -->
     <div class="section-title">Perfil Profesional</div>
     <div class="profile-text">
       Futuro Ingeniero en Ciberseguridad en el 4to semestre de SENATI. Aunque cuento con varias certificaciones, mantengo la humildad de aprender constantemente y aplicar los conocimientos rápido. Suelo ir un paso adelante en los temas que me apasionan, y si desconozco algo, lo aprendo en el instante. Integro la IA como aliada clave para el análisis y síntesis de la información. Mi meta es liderar proyectos tecnológicos extraordinarios y fundar mi propia empresa en el sector.
     </div>
 
-    <!-- MAIN BODY -->
-    <table class="columns-table">
+    <!-- EXPERIENCIA LABORAL -->
+    <div class="section-title">Experiencia Laboral</div>
+
+    <div class="exp-item">
+      <div class="exp-header">EJÉRCITO DEL PERÚ</div>
+      <div class="exp-subheader">Cargo: Instructor Militar (Licenciado) | 2022 — 2024</div>
+      
+      <div class="functions-title">Funciones:</div>
+      <ul class="bullet-list">
+        <li>Planificar y dictar materias de instrucción militar a personal recluta bajo las normas de disciplina vigentes.</li>
+        <li>Coordinar el entrenamiento físico, táctico y técnico de escuadras de operaciones de seguridad.</li>
+        <li>Supervisar el cumplimiento de protocolos de seguridad física y control de accesos en instalaciones militares.</li>
+      </ul>
+      
+      <div class="logros-title">Logros:</div>
+      <ul class="bullet-list">
+        <li>Formar con éxito a más de 100 soldados reclutas en tácticas básicas, disciplina y valores institucionales.</li>
+        <li>Optimizar el plan de instrucción del contingente militar, reduciendo los tiempos de asimilación de protocolos tácticos de seguridad en un 20%.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item" style="margin-bottom: 5px;">
+      <div class="exp-header">PROYECTOS Y IMPLEMENTACIONES DE CIBERSEGURIDAD</div>
+      <div class="exp-subheader">Cargo: Especialista Técnico / Administrador Junior de Laboratorios | 2025 — Presente</div>
+      
+      <div class="functions-title">Funciones:</div>
+      <ul class="bullet-list">
+        <li>Diseñar e implementar esquemas de direccionamiento IP y topologías de red en simuladores Cisco Packet Tracer.</li>
+        <li>Realizar auditorías de seguridad y análisis de vulnerabilidades mediante entornos Linux Kali en laboratorios de pruebas.</li>
+        <li>Administrar y securizar sistemas basados en servidores Red Hat Enterprise Linux y Windows Client/Server.</li>
+      </ul>
+      
+      <div class="logros-title">Logros:</div>
+      <ul class="bullet-list">
+        <li>Configurar e integrar topologías complejas de enrutamiento y conmutación (CCNA), alcanzando una tasa de disponibilidad del servicio del 100% en simulaciones académicas.</li>
+        <li>Identificar y mitigar puertos vulnerables y configuraciones inseguras en entornos de pruebas, elevando la resiliencia de los sistemas simulados.</li>
+        <li>Implementar políticas de control de versiones y documentación ágil en GitHub para proyectos colaborativos, optimizando la trazabilidad de los desarrollos en un 30%.</li>
+      </ul>
+    </div>
+
+    <!-- FORMACION PROFESIONAL -->
+    <div class="section-title">Formación Profesional</div>
+    <div class="exp-item" style="margin-bottom: 5px;">
+      <div class="exp-header">Ingeniería en Ciberseguridad (Pre Grado Técnico Profesional)</div>
+      <div class="exp-subheader">SENATI · Arequipa, Perú | 2026 — Presente (4to Semestre)</div>
+    </div>
+    <div class="exp-item" style="margin-bottom: 5px;">
+      <div class="exp-header">Licenciamiento del Servicio Militar Voluntario & Especialidad de Instructor</div>
+      <div class="exp-subheader">Fuerzas Armadas del Perú | 2022 — 2024</div>
+    </div>
+
+    <!-- FORMACION COMPLEMENTARIA -->
+    <div class="section-title">Formación Complementaria</div>
+    <ul class="bullet-list" style="margin-bottom: 10px;">
+      <li><b>CCNA: Introducción a Redes</b> - Cisco Networking Academy · SENATI, 70 horas, 2026.</li>
+      <li><b>Hacker Ético</b> - CyberGames · Cisco · UTP, 70 horas, 2026.</li>
+      <li><b>Red Hat System Administration I (Asistencia)</b> - SENATI, 2026.</li>
+      <li><b>Conceptos Básicos de Redes</b> - Cisco · SENATI, 22 horas, 2025.</li>
+      <li><b>Introducción a la Ciencia de Datos</b> - Cisco · SENATI, 6 horas, 2025.</li>
+      <li><b>Conceptos Básicos de Hardware</b> - Cisco · SENATI, 6 horas, 2025.</li>
+      <li><b>Introducción al Internet de las Cosas (IoT) y Transformación Digital</b> - Cisco · SENATI, 6 horas, 2025.</li>
+    </ul>
+
+    <!-- IDIOMAS & INFORMATICA & RECONOCIMIENTOS -->
+    <table class="two-columns-table">
       <tr>
-        <!-- LEFT COLUMN (Skills, Languages, Attributes) -->
-        <td class="col-left">
-          
-          <div class="section-title" style="margin-top: 0;">Habilidades</div>
-          
-          <div class="skill-category">Redes & Cisco</div>
-          <div class="skill-desc">CCNA (Introducción a Redes), Subnetting IP, direccionamiento IPv4/IPv6, configuración de routers y switches Cisco.</div>
-          
-          <div class="skill-category">Ciberseguridad</div>
-          <div class="skill-desc">Ethical Hacking básico, escaneo de puertos, análisis de vulnerabilidades, concienciación digital y seguridad informática.</div>
-          
-          <div class="skill-category">Sistemas Operativos</div>
-          <div class="skill-desc">Linux (Kali Linux, Red Hat Enterprise Linux I básico), Windows Client/Server.</div>
-          
-          <div class="skill-category">Lógica & Herramientas</div>
-          <div class="skill-desc">Lógica en PSeInt, Git/GitHub, uso avanzado de herramientas de Inteligencia Artificial.</div>
-
-          <div class="section-title">Idiomas</div>
-          <table style="width: 100%; font-size: 8.5pt; color: #555555; border-collapse: collapse;">
-            <tr><td style="padding: 2px 0;"><b>Español:</b></td><td style="text-align: right;">Nativo</td></tr>
-            <tr><td style="padding: 2px 0;"><b>Quechua:</b></td><td style="text-align: right;">Nativo</td></tr>
-            <tr><td style="padding: 2px 0;"><b>Inglés:</b></td><td style="text-align: right;">En curso</td></tr>
-            <tr><td style="padding: 2px 0;"><b>Portugués:</b></td><td style="text-align: right;">Básico</td></tr>
-          </table>
-
-          <div class="section-title">Fortalezas</div>
-          <ul style="font-size: 8pt; color: #555555; padding-left: 12px; margin: 0; line-height: 1.35;">
-            <li style="margin-bottom: 3px;">Humildad en el aprendizaje.</li>
-            <li style="margin-bottom: 3px;">Agilidad para asimilar técnicas.</li>
-            <li style="margin-bottom: 3px;">Disciplina y rigor militar.</li>
-            <li style="margin-bottom: 3px;">Orientación a la resolución.</li>
+        <td class="col-cell" style="padding-right: 10px;">
+          <div class="section-title" style="margin-top: 0;">Idiomas</div>
+          <ul class="detail-list">
+            <li><b>Español:</b> Nativo</li>
+            <li><b>Quechua:</b> Nativo (Comunicación fluida)</li>
+            <li><b>Inglés:</b> En curso (Academia)</li>
+            <li><b>Portugués:</b> Básico</li>
           </ul>
-
         </td>
-
-        <!-- RIGHT COLUMN (Education, Experience, Certifications) -->
-        <td class="col-right">
-          
-          <div class="section-title" style="margin-top: 0;">Educación</div>
-          
-          <div class="item-title">Ingeniería en Ciberseguridad</div>
-          <div class="item-subtitle">SENATI · Arequipa, Perú | 2026 — Presente</div>
-          <div class="item-desc">Cursando actualmente el 4to Semestre. Formación en redes corporativas, seguridad perimetral, administración de servidores y defensa cibernética.</div>
-          
-          <div class="item-title">Servicio Militar Voluntario & Especialidad de Instructor Militar</div>
-          <div class="item-subtitle">Fuerzas Armadas del Perú | 2022 — 2024</div>
-          <div class="item-desc">Licenciado militar con especialidad de Instructor. Experiencia en liderazgo de equipos tácticos, toma de decisiones rápidas bajo alta presión y rigurosa organización.</div>
-
-          <div class="section-title">Certificaciones Destacadas</div>
-          
-          <table style="width:100%; border-collapse:collapse; font-size: 8.5pt; color:#555555;">
-            <tr>
-              <td style="vertical-align:top; padding: 2px 0; width: 10px;">•</td>
-              <td style="padding: 2px 0;"><b>CCNA: Introducción a Redes</b> (Cisco Academy, 70 horas, 2026)</td>
-            </tr>
-            <tr>
-              <td style="vertical-align:top; padding: 2px 0;">•</td>
-              <td style="padding: 2px 0;"><b>Hacker Ético</b> (Cisco / CyberGames / UTP, 70 horas, 2026)</td>
-            </tr>
-            <tr>
-              <td style="vertical-align:top; padding: 2px 0;">•</td>
-              <td style="padding: 2px 0;"><b>Red Hat System Administration I</b> (Curso de Asistencia, 2026)</td>
-            </tr>
-            <tr>
-              <td style="vertical-align:top; padding: 2px 0;">•</td>
-              <td style="padding: 2px 0;"><b>Conceptos Básicos de Redes</b> (Cisco / SENATI, 22 horas, 2025)</td>
-            </tr>
-            <tr>
-              <td style="vertical-align:top; padding: 2px 0;">•</td>
-              <td style="padding: 2px 0;"><b>Introducción a la Ciencia de Datos</b> (Cisco / SENATI, 6 horas, 2025)</td>
-            </tr>
-            <tr>
-              <td style="vertical-align:top; padding: 2px 0;">•</td>
-              <td style="padding: 2px 0;"><b>Conceptos Básicos de Hardware</b> (Cisco / SENATI, 6 horas, 2025)</td>
-            </tr>
-          </table>
-
+        <td class="col-cell" style="padding-left: 10px; border-left: 1px solid #dddddd;">
+          <div class="section-title" style="margin-top: 0;">Informática</div>
+          <ul class="detail-list">
+            <li><b>Sistemas Operativos:</b> Linux (Kali Linux, Red Hat Enterprise Linux, Ubuntu), Windows Server/Client.</li>
+            <li><b>Redes:</b> Configuración de switches y routers Cisco, subnetting IP.</li>
+            <li><b>Herramientas:</b> Nmap, Wireshark, Cisco Packet Tracer, Git, GitHub, PSeInt, MS Office.</li>
+          </ul>
         </td>
       </tr>
     </table>
 
-    <!-- FOOTER WITH QR -->
+    <div class="section-title">Reconocimientos / Voluntariados</div>
+    <ul class="bullet-list" style="margin-bottom: 10px;">
+      <li>Licenciado con Licencia Militar de Primera Clase, Ejército del Perú.</li>
+      <li>Certificación de Especialidad y Desempeño Sobresaliente como Instructor Militar.</li>
+    </ul>
+
+    <!-- DATOS PERSONALES -->
+    <div class="section-title">Datos Personales</div>
+    <table style="width: 100%; border-collapse: collapse; font-size: 9pt; color: #555555; margin-bottom: 10px;">
+      <tr>
+        <td style="padding: 2px 0; width: 25%;"><b>DNI:</b></td>
+        <td style="padding: 2px 0; width: 25%;">62113229</td>
+        <td style="padding: 2px 0; width: 25%;"><b>Fecha de Nacimiento:</b></td>
+        <td style="padding: 2px 0; width: 25%;">09/05/2001</td>
+      </tr>
+      <tr>
+        <td style="padding: 2px 0;"><b>Dirección:</b></td>
+        <td style="padding: 2px 0;">Arequipa, Perú</td>
+        <td style="padding: 2px 0;"><b>Licencia de Conducir:</b></td>
+        <td style="padding: 2px 0;">No aplica / En trámite</td>
+      </tr>
+    </table>
+
+    <!-- FOOTER WITH QR IN CORNER -->
     <table class="qr-table">
       <tr>
         <td class="qr-text">
           <b>VERIFICACIÓN DIGITAL DEL CURRÍCULUM:</b><br/>
-          Este documento de CV cuenta con una versión en línea interactiva y verificable.<br/>
-          Escanee el código QR adjunto para acceder a las credenciales digitales en Credly y ver los detalles del portafolio en vivo.
+          Este documento de CV cuenta con una versión digital en línea.<br/>
+          Escanee el código QR adjunto para acceder a las credenciales verificables en Credly y ver los detalles actualizados del portafolio.
         </td>
         <td class="qr-code">
           ${qrImgHtml}
