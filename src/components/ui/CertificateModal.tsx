@@ -116,6 +116,23 @@ export default function CertificateModal({
         e.preventDefault();
         e.stopPropagation();
       }
+
+      // Block PrintScreen key instantly on keydown (before capture buffer is filled)
+      if (e.key === 'PrintScreen' || e.keyCode === 44) {
+        setIsBlurred(true);
+        navigator.clipboard?.writeText?.("Contenido protegido. Captura deshabilitada.");
+        setTimeout(() => setIsBlurred(false), 2000);
+      }
+
+      // Block Windows + Shift + S / Cmd + Shift + 3 or 4 (Screenshots)
+      if (
+        (e.metaKey || e.ctrlKey || e.shiftKey) &&
+        e.shiftKey &&
+        (e.key === 'S' || e.key === 's' || e.key === '3' || e.key === '4' || e.key === 'X' || e.key === 'x')
+      ) {
+        setIsBlurred(true);
+        setTimeout(() => setIsBlurred(false), 2000);
+      }
     };
 
     // Block PrintScreen key to blur screen instantly
