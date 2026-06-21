@@ -271,6 +271,9 @@ function generateDoc(profileB64, qrB64) {
       <li><b>Introducción a la Ciencia de Datos</b> - Cisco · SENATI, 6 horas, 2025.</li>
       <li><b>Conceptos Básicos de Hardware</b> - Cisco · SENATI, 6 horas, 2025.</li>
       <li><b>Introducción al Internet de las Cosas (IoT) y Transformación Digital</b> - Cisco · SENATI, 6 horas, 2025.</li>
+      <li><b>Creación de Contenido Digital y Colaboración</b> - Cisco · SENATI, 6 horas, 2025.</li>
+      <li><b>Conciencia Digital</b> - Cisco · SENATI, 6 horas, 2025.</li>
+      <li><b>Uso de Computadoras y Dispositivos Móviles</b> - Cisco · SENATI, 6 horas, 2025.</li>
     </ul>
 
     <!-- IDIOMAS & INFORMATICA & RECONOCIMIENTOS -->

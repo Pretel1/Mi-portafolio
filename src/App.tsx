@@ -12,6 +12,7 @@ import About from '@/pages/About';
 import CV from '@/pages/CV';
 import Certificates from '@/pages/Certificates';
 import Contact from '@/pages/Contact';
+import StudioPage from '@/pages/Studio';
 
 export default function App() {
   const location = useLocation();
@@ -62,6 +63,16 @@ export default function App() {
       window.removeEventListener('keydown', handleKeyDown, true);
     };
   }, []);
+
+  const isStudio = location.pathname.startsWith('/studio');
+
+  if (isStudio) {
+    return (
+      <Routes>
+        <Route path="/studio/*" element={<StudioPage />} />
+      </Routes>
+    );
+  }
 
   return (
     <SmoothScroll>

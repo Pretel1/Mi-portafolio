@@ -286,49 +286,77 @@ export default function CV() {
                     <span className="text-neon-green print:text-black/70">•</span>
                     <div>
                       <p className="font-semibold text-white print:text-black">CCNA: Introducción a Redes</p>
-                      <p className="text-[10px] text-text-muted print:text-black/60">Cisco Networking Academy · 70 horas</p>
+                      <p className="text-[10px] text-text-muted print:text-black/60">Cisco Networking Academy · SENATI · 70 horas · 2026</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-1">
                     <span className="text-neon-green print:text-black/70">•</span>
                     <div>
                       <p className="font-semibold text-white print:text-black">Hacker Ético</p>
-                      <p className="text-[10px] text-text-muted print:text-black/60">CyberGames · Cisco · UTP · 70 horas</p>
+                      <p className="text-[10px] text-text-muted print:text-black/60">CyberGames · Cisco · UTP · 70 horas · 2026</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-1">
                     <span className="text-neon-green print:text-black/70">•</span>
                     <div>
                       <p className="font-semibold text-white print:text-black">Red Hat System Administration I</p>
-                      <p className="text-[10px] text-text-muted print:text-black/60">SENATI · Curso de Especialización</p>
+                      <p className="text-[10px] text-text-muted print:text-black/60">SENATI · Curso de Especialización · 2026</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-1">
                     <span className="text-neon-green print:text-black/70">•</span>
                     <div>
                       <p className="font-semibold text-white print:text-black">English for IT 1 (Nivel B2)</p>
-                      <p className="text-[10px] text-text-muted print:text-black/60">Cisco · SENATI · 50 horas</p>
+                      <p className="text-[10px] text-text-muted print:text-black/60">Cisco Networking Academy · SENATI · 50 horas · 2026</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-1">
                     <span className="text-neon-green print:text-black/70">•</span>
                     <div>
                       <p className="font-semibold text-white print:text-black">Conceptos Básicos de Redes</p>
-                      <p className="text-[10px] text-text-muted print:text-black/60">Cisco · SENATI · 22 horas</p>
+                      <p className="text-[10px] text-text-muted print:text-black/60">Cisco · SENATI · 22 horas · 2025</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-1">
                     <span className="text-neon-green print:text-black/70">•</span>
                     <div>
                       <p className="font-semibold text-white print:text-black">Conceptos Básicos de Hardware</p>
-                      <p className="text-[10px] text-text-muted print:text-black/60">Cisco · SENATI · 6 horas</p>
+                      <p className="text-[10px] text-text-muted print:text-black/60">Cisco · SENATI · 6 horas · 2025</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-1">
                     <span className="text-neon-green print:text-black/70">•</span>
                     <div>
                       <p className="font-semibold text-white print:text-black">Ciencia de Datos (Introducción)</p>
-                      <p className="text-[10px] text-text-muted print:text-black/60">Cisco · SENATI · 6 horas</p>
+                      <p className="text-[10px] text-text-muted print:text-black/60">Cisco · SENATI · 6 horas · 2025</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-1">
+                    <span className="text-neon-green print:text-black/70">•</span>
+                    <div>
+                      <p className="font-semibold text-white print:text-black">Introducción a IoT y Transformación Digital</p>
+                      <p className="text-[10px] text-text-muted print:text-black/60">Cisco · SENATI · 6 horas · 2025</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-1">
+                    <span className="text-neon-green print:text-black/70">•</span>
+                    <div>
+                      <p className="font-semibold text-white print:text-black">Creación de Contenido Digital y Colaboración</p>
+                      <p className="text-[10px] text-text-muted print:text-black/60">Cisco · SENATI · 6 horas · 2025</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-1">
+                    <span className="text-neon-green print:text-black/70">•</span>
+                    <div>
+                      <p className="font-semibold text-white print:text-black">Conciencia Digital</p>
+                      <p className="text-[10px] text-text-muted print:text-black/60">Cisco · SENATI · 6 horas · 2025</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-1">
+                    <span className="text-neon-green print:text-black/70">•</span>
+                    <div>
+                      <p className="font-semibold text-white print:text-black">Uso de Computadoras y Dispositivos Móviles</p>
+                      <p className="text-[10px] text-text-muted print:text-black/60">Cisco · SENATI · 6 horas · 2025</p>
                     </div>
                   </div>
                 </div>
