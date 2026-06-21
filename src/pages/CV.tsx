@@ -179,7 +179,7 @@ export default function CV() {
                   </li>
                   <li className="flex justify-between">
                     <span className="text-white print:text-black">Inglés</span>
-                    <span className="text-text-muted print:text-black/60">B2 (English for IT 1)</span>
+                    <span className="text-text-muted print:text-black/60">En curso (Inglés SENATI)</span>
                   </li>
                   <li className="flex justify-between">
                     <span className="text-white print:text-black">Portugués</span>

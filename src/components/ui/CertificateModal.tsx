@@ -239,7 +239,7 @@ export default function CertificateModal({
               {cert.type === 'pdf' ? (
                 <div className="w-full h-full relative overflow-hidden pointer-events-none select-none">
                   <iframe
-                    src={`${getCertUrl(cert.filename)}#toolbar=0&navpanes=0&scrollbar=0`}
+                    src={`${getCertUrl(cert.filename)}#toolbar=0&navpanes=0&scrollbar=0&view=Fit`}
                     className="w-full h-full border-none pointer-events-none select-none"
                     title={`Certificado: ${cert.title}`}
                     loading="lazy"

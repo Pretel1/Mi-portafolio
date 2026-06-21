@@ -281,7 +281,7 @@ function generateDoc(profileB64, qrB64) {
           <ul class="detail-list">
             <li><b>Español:</b> Nativo</li>
             <li><b>Quechua:</b> Nativo (Comunicación fluida)</li>
-            <li><b>Inglés:</b> Nivel B2 - Certificación English for IT 1 (Cisco · SENATI)</li>
+            <li><b>Inglés:</b> En curso (Inglés SENATI)</li>
             <li><b>Portugués:</b> Básico</li>
           </ul>
         </td>
