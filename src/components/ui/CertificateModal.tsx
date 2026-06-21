@@ -246,7 +246,7 @@ export default function CertificateModal({
                     onContextMenu={(e) => e.preventDefault()}
                   />
                   {/* Dynamic Watermark Overlay for PDF */}
-                  <div className="absolute inset-0 pointer-events-none select-none overflow-hidden flex flex-col justify-around opacity-[0.06] rotate-[-15deg] scale-125 z-10">
+                  <div className="absolute inset-0 pointer-events-none select-none overflow-hidden flex flex-col justify-around opacity-[0.18] rotate-[-15deg] scale-125 z-30">
                     {Array.from({ length: 6 }).map((_, i) => (
                       <div key={i} className="flex justify-around text-[9px] sm:text-[11px] font-mono tracking-widest text-neon-cyan whitespace-nowrap select-none">
                         <span>DANY PRETEL · COPIA PROTEGIDA · DNI 62113229 · ACCESO: {timestamp}</span>
@@ -267,7 +267,7 @@ export default function CertificateModal({
                     onContextMenu={(e) => e.preventDefault()}
                   />
                   {/* Dynamic Watermark Overlay for Image */}
-                  <div className="absolute inset-0 pointer-events-none select-none overflow-hidden flex flex-col justify-around opacity-[0.06] rotate-[-15deg] scale-125 z-10">
+                  <div className="absolute inset-0 pointer-events-none select-none overflow-hidden flex flex-col justify-around opacity-[0.18] rotate-[-15deg] scale-125 z-30">
                     {Array.from({ length: 6 }).map((_, i) => (
                       <div key={i} className="flex justify-around text-[9px] sm:text-[11px] font-mono tracking-widest text-neon-cyan whitespace-nowrap select-none">
                         <span>DANY PRETEL · COPIA PROTEGIDA · DNI 62113229 · ACCESO: {timestamp}</span>
