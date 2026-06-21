@@ -98,7 +98,15 @@ export default function CV() {
                   <span className="text-neon-cyan print:text-black/50">✉️</span> 1263803@senati.pe
                 </div>
                 <div className="flex items-center justify-center md:justify-start gap-2">
-                  <span className="text-neon-cyan print:text-black/50">🔗</span> linkedin.com/in/danny-pretel-2a35651a4
+                  <span className="text-neon-cyan print:text-black/50">🔗</span>
+                  <a
+                    href="https://www.linkedin.com/in/danny-pretel-2a35651a4"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-neon-cyan hover:underline transition-colors print:no-underline print:text-black"
+                  >
+                    linkedin.com/in/danny-pretel-2a35651a4
+                  </a>
                 </div>
                 <div className="flex items-center justify-center md:justify-start gap-2">
                   <span className="text-neon-cyan print:text-black/50">DNI:</span> 

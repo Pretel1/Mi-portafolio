@@ -132,6 +132,15 @@ export default function Contact() {
                       >
                         &quot;{info.value}&quot;
                       </a>
+                    ) : info.label === 'LinkedIn' ? (
+                      <a 
+                        href={`https://www.linkedin.com/in/${info.value}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-lg font-mono text-neon-green hover:text-white transition-colors cursor-pointer inline-block"
+                      >
+                        &quot;linkedin.com/in/{info.value}&quot;
+                      </a>
                     ) : (
                       <p className="text-lg font-mono text-neon-green">&quot;{info.value}&quot;</p>
                     )}

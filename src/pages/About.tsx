@@ -122,7 +122,15 @@ export default function About() {
                 <span className="text-purple w-5">📍</span> Arequipa, Perú
               </li>
               <li className="flex items-center gap-3 hover:text-white transition-colors">
-                <span className="text-purple w-5">in</span> /in/danny-pretel-2a35651a4
+                <span className="text-purple w-5">in</span>
+                <a
+                  href="https://www.linkedin.com/in/danny-pretel-2a35651a4"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-neon-cyan transition-colors"
+                >
+                  /in/danny-pretel-2a35651a4
+                </a>
               </li>
               <li className="flex items-center gap-3 hover:text-white transition-colors mt-2 pt-2 border-t border-white/5">
                 <span className="text-purple w-5 text-xs font-bold">DNI</span>

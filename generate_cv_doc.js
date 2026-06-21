@@ -213,7 +213,7 @@ function generateDoc(profileB64, qrB64) {
           <div class="name">DANY JOSE PRETEL HUAMANVILCA</div>
           <div class="title">Estudiante de Ingeniería en Ciberseguridad</div>
           <div class="contact-info">
-            <b>Datos de contacto:</b> +51 935 738 276 | 1263803@senati.pe | linkedin.com/in/danny-pretel-2a35651a4
+            <b>Datos de contacto:</b> +51 935 738 276 | <a href="mailto:1263803@senati.pe" style="color: #555555; text-decoration: none;">1263803@senati.pe</a> | <a href="https://www.linkedin.com/in/danny-pretel-2a35651a4" style="color: #555555; text-decoration: none;">linkedin.com/in/danny-pretel-2a35651a4</a>
           </div>
         </td>
         <td class="header-photo">
