@@ -309,7 +309,12 @@ async function generateDoc(profileB64, qrB64) {
       </tr>
     </table>
 
-
+    <!-- RECONOCIMIENTOS / VOLUNTARIADOS -->
+    <div class="section-title">Reconocimientos / Voluntariados</div>
+    <ul class="bullet-list" style="margin-bottom: 12px;">
+      <li>Licenciado con Licencia Militar de Primera Clase, Ejército del Perú.</li>
+      <li>Certificación de Especialidad y Desempeño Sobresaliente como Instructor Militar.</li>
+    </ul>
 
     <!-- DATOS PERSONALES -->
     <div class="section-title">Datos Personales</div>
