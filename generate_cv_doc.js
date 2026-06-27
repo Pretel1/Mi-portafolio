@@ -275,12 +275,12 @@ async function generateDoc(profileB64, qrB64) {
     <ul class="bullet-list" style="margin-bottom: 12px;">
       <li><b>CCNA: Introducción a Redes</b> - Cisco Networking Academy · SENATI, 70 horas, 2026.</li>
       <li><b>Hacker Ético</b> - CyberGames · Cisco · UTP, 70 horas, 2026.</li>
-      <li><b>Red Hat System Administration I (Asistencia)</b> - SENATI, 2026.</li>
+      <li><b>Red Hat System Administration I</b> - SENATI, Curso de Especialización, 2026.</li>
       <li><b>English for IT 1 (Nivel B2)</b> - Cisco Networking Academy · SENATI, 50 horas, 2026.</li>
       <li><b>Conceptos Básicos de Redes</b> - Cisco · SENATI, 22 horas, 2025.</li>
-      <li><b>Introducción a la Ciencia de Datos</b> - Cisco · SENATI, 6 horas, 2025.</li>
+      <li><b>Ciencia de Datos (Introducción)</b> - Cisco · SENATI, 6 horas, 2025.</li>
       <li><b>Conceptos Básicos de Hardware</b> - Cisco · SENATI, 6 horas, 2025.</li>
-      <li><b>Introducción al Internet de las Cosas (IoT) y Transformación Digital</b> - Cisco · SENATI, 6 horas, 2025.</li>
+      <li><b>Introducción a IoT y Transformación Digital</b> - Cisco · SENATI, 6 horas, 2025.</li>
       <li><b>Creación de Contenido Digital y Colaboración</b> - Cisco · SENATI, 6 horas, 2025.</li>
       <li><b>Conciencia Digital</b> - Cisco · SENATI, 6 horas, 2025.</li>
       <li><b>Uso de Computadoras y Dispositivos Móviles</b> - Cisco · SENATI, 6 horas, 2025.</li>
@@ -293,7 +293,7 @@ async function generateDoc(profileB64, qrB64) {
           <div class="section-title" style="margin-top: 0;">Idiomas</div>
           <ul class="detail-list">
             <li><b>Español:</b> Nativo</li>
-            <li><b>Quechua:</b> Nativo (Comunicación fluida)</li>
+            <li><b>Quechua:</b> Nativo</li>
             <li><b>Inglés:</b> En curso (Inglés SENATI)</li>
             <li><b>Portugués:</b> Básico</li>
           </ul>
