@@ -283,7 +283,7 @@ export default function CV() {
                       </span>
                     </div>
                     <p className="text-xs font-mono text-text-secondary print:text-black/70 mt-1">
-                      Fuerzas Armadas del Perú | Unidad: CEMOV_COSTA | Periodo: 01 de Julio de 2020 — 23 de Junio de 2022 | Arma: Infantería
+                      Fuerzas Armadas del Perú | Unidad: CEMOV_COSTA | Fecha de Alta: 01 de Julio de 2020 — Fecha de Baja: 23 de Junio de 2022 | Arma: Infantería
                     </p>
                   </div>
                 </div>
