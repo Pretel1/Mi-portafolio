@@ -29,6 +29,29 @@ export default function Contact() {
     window.scrollTo(0, 0);
   }, []);
 
+  const handleDownloadPDF = async (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(`${import.meta.env.BASE_URL}CV_Dany_Pretel.pdf`);
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'CV_Dany_Pretel.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      const fallbackLink = document.createElement('a');
+      fallbackLink.href = `${import.meta.env.BASE_URL}CV_Dany_Pretel.pdf`;
+      fallbackLink.download = 'CV_Dany_Pretel.pdf';
+      fallbackLink.target = '_blank';
+      fallbackLink.rel = 'noopener noreferrer';
+      fallbackLink.click();
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
@@ -177,7 +200,7 @@ export default function Contact() {
                 
                 <a
                   href={`${import.meta.env.BASE_URL}CV_Dany_Pretel.pdf`}
-                  download="CV_Dany_Pretel.pdf"
+                  onClick={handleDownloadPDF}
                   className="flex-1 px-4 py-3 bg-transparent hover:bg-white/5 text-white border border-white/20 text-xs font-mono font-bold uppercase tracking-wider text-center transition-all duration-300 rounded cursor-pointer"
                 >
                   $ Descargar PDF

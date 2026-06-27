@@ -20,6 +20,29 @@ export default function CV() {
     };
   }, []);
 
+  const handleDownloadPDF = async (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(`${import.meta.env.BASE_URL}CV_Dany_Pretel.pdf`);
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'CV_Dany_Pretel.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      const fallbackLink = document.createElement('a');
+      fallbackLink.href = `${import.meta.env.BASE_URL}CV_Dany_Pretel.pdf`;
+      fallbackLink.download = 'CV_Dany_Pretel.pdf';
+      fallbackLink.target = '_blank';
+      fallbackLink.rel = 'noopener noreferrer';
+      fallbackLink.click();
+    }
+  };
+
   return (
     <motion.div
       variants={pageTransition}
@@ -46,7 +69,7 @@ export default function CV() {
           <div className="flex flex-wrap items-center gap-3">
             <a
               href={`${import.meta.env.BASE_URL}CV_Dany_Pretel.pdf`}
-              download="CV_Dany_Pretel.pdf"
+              onClick={handleDownloadPDF}
               className="flex items-center gap-2 px-5 py-2.5 bg-neon-cyan text-black text-xs font-mono font-bold uppercase tracking-wider rounded hover:bg-white hover:shadow-[0_0_20px_rgba(0,242,254,0.4)] transition-all duration-300 cursor-pointer"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
