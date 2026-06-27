@@ -5,7 +5,7 @@ import { resolve } from 'path';
 
 export default defineConfig({
   // Configuración para el despliegue en GitHub Pages
-  base: '/Mi-portafolio/',
+  base: './',
   plugins: [
     react(),
     tailwindcss(),
