@@ -381,8 +381,7 @@ export default function CV() {
                   // Reconocimientos / Voluntariados
                 </h3>
                 <ul className="list-disc pl-4 text-xs font-mono text-text-secondary print:text-black/85 print:text-[10px] space-y-1">
-                  <li>Licenciado con Licencia Militar de Primera Clase, Ejército del Perú.</li>
-                  <li>Certificación de Especialidad y Desempeño Sobresaliente como Instructor Militar.</li>
+                  <li>Licenciado de las FF. AA. del Perú, con Certificado de Especialidad y Desempeño Sobresaliente como Instructor Militar.</li>
                 </ul>
               </div>
 
