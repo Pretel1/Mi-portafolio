@@ -11,7 +11,13 @@ export default function CV() {
   });
 
   useEffect(() => {
+    // Add class to enable printing/PDF generation for this page specifically
+    document.body.classList.add('allow-print');
     window.scrollTo(0, 0);
+    return () => {
+      // Clean up on unmount to keep security active on other pages
+      document.body.classList.remove('allow-print');
+    };
   }, []);
 
   return (
