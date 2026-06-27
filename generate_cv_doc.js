@@ -1,6 +1,7 @@
 import fs from 'fs';
 import https from 'https';
 import path from 'path';
+import { chromium } from 'playwright';
 
 // Paths
 const profilePath = 'public/images/profile_circle.png';
@@ -37,7 +38,7 @@ https.get(qrUrl, (res) => {
   generateDoc(profileBase64, '');
 });
 
-function generateDoc(profileB64, qrB64) {
+async function generateDoc(profileB64, qrB64) {
   const profileImgHtml = profileB64 
     ? `<img src="data:image/png;base64,${profileB64}" width="160" height="160" style="border-radius: 80px; border: 1.5pt solid #000000;" />`
     : '[FOTO PROFESIONAL]';
@@ -348,4 +349,36 @@ function generateDoc(profileB64, qrB64) {
 
   fs.writeFileSync(outputPath, htmlContent);
   console.log('Word document CV successfully created at:', outputPath);
+
+  // Write temporary HTML file for PDF generation
+  const tempHtmlPath = 'public/temp_cv.html';
+  fs.writeFileSync(tempHtmlPath, htmlContent);
+
+  try {
+    console.log('- Launching browser for PDF generation...');
+    const browser = await chromium.launch();
+    const page = await browser.newPage();
+    const absolutePath = path.resolve(tempHtmlPath);
+    
+    console.log('- Rendering PDF...');
+    await page.goto(`file:///${absolutePath.replace(/\\/g, '/')}`, {
+      waitUntil: 'networkidle',
+    });
+    
+    await page.pdf({
+      path: 'public/CV_Dany_Pretel.pdf',
+      format: 'A4',
+      printBackground: true,
+      margin: { top: '0', right: '0', bottom: '0', left: '0' } // Let CSS handle margins
+    });
+    
+    console.log('PDF CV successfully created at: public/CV_Dany_Pretel.pdf');
+    await browser.close();
+  } catch (error) {
+    console.error('Error generating PDF:', error);
+  } finally {
+    if (fs.existsSync(tempHtmlPath)) {
+      fs.unlinkSync(tempHtmlPath);
+    }
+  }
 }
