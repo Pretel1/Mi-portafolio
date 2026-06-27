@@ -5,7 +5,8 @@ export type CertificateCategory =
   | 'Ciencia de Datos'
   | 'Hardware'
   | 'Habilidades Digitales'
-  | 'IoT';
+  | 'IoT'
+  | 'Militar y Conducta';
 
 export interface Certificate {
   id: string;
@@ -164,6 +165,39 @@ export const certificates: Certificate[] = [
     origin: 'SENATI',
     verificationUrl: 'https://www.credly.com/badges/defb1ea8-4769-4cdf-a588-58eba768eca0/public_url',
   },
+  {
+    id: 'conducta',
+    title: 'Certificado de Conducta',
+    category: 'Militar y Conducta',
+    institution: 'Fuerzas Armadas del Perú',
+    year: 2024,
+    filename: 'certificado de conducta.jpeg',
+    icon: '🎖️',
+    type: 'image',
+    origin: 'Externo',
+  },
+  {
+    id: 'especialidad',
+    title: 'Certificado de Especialidad - Instructor Militar',
+    category: 'Militar y Conducta',
+    institution: 'Fuerzas Armadas del Perú',
+    year: 2024,
+    filename: 'certificado de especialidad.jpeg',
+    icon: '🎖️',
+    type: 'image',
+    origin: 'Externo',
+  },
+  {
+    id: 'licenciamiento',
+    title: 'Certificado de Licenciamiento',
+    category: 'Militar y Conducta',
+    institution: 'Fuerzas Armadas del Perú',
+    year: 2024,
+    filename: 'certificado de licenciamiento.jpeg',
+    icon: '🎖️',
+    type: 'image',
+    origin: 'Externo',
+  },
 ];
 
 export const categories: CertificateCategory[] = [
@@ -174,4 +208,5 @@ export const categories: CertificateCategory[] = [
   'Hardware',
   'Habilidades Digitales',
   'IoT',
+  'Militar y Conducta',
 ];
