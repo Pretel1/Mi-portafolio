@@ -21,7 +21,6 @@ export default {
           { title: 'Hardware', value: 'Hardware' },
           { title: 'Habilidades Digitales', value: 'Habilidades Digitales' },
           { title: 'IoT', value: 'IoT' },
-          { title: 'Militar y Conducta', value: 'Militar y Conducta' },
         ],
       },
       validation: (Rule: any) => Rule.required(),

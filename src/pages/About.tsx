@@ -20,7 +20,7 @@ const SKILLS = [
 export default function About() {
   usePageMeta({
     title: 'Sobre Mí',
-    description: 'Conoce a Dany Pretel: futuro ingeniero de ciberseguridad. Humildad para aprender, agilidad para aplicar conocimientos y la visión de llevar proyectos a límites inalcanzables.',
+    description: 'Conoce a Dany Pretel: estudiante de Ingeniería de Ciberseguridad. Humildad para aprender, agilidad para aplicar conocimientos y la visión de llevar proyectos a límites inalcanzables.',
   });
 
   useEffect(() => {
@@ -59,13 +59,13 @@ export default function About() {
             <h3 className="text-xs font-mono text-neon-cyan uppercase tracking-widest mb-6">// Perfil Profesional</h3>
             <div className="space-y-4 text-base md:text-lg text-text-secondary font-mono leading-relaxed">
               <p>
-                Soy <span className="text-neon-cyan font-semibold">Futuro Ingeniero de Ciberseguridad</span> en SENATI (4to semestre). Tengo varias certificaciones y cursos, pero no pretendo saberlo todo. Mi verdadero valor radica en la <span className="text-white font-semibold">humildad para aprender constantemente</span> y la determinación para implementar de inmediato cada nuevo conocimiento que adquiero.
+                Soy <span className="text-neon-cyan font-semibold">estudiante de Ingeniería de Ciberseguridad</span> en SENATI, actualmente en el 4to semestre (en curso). Cuento con diversas certificaciones y cursos, pero mantengo siempre la humildad de aprender de forma continua y la determinación para aplicar de inmediato cada nuevo conocimiento que adquiero.
               </p>
               <p>
-                Suelo ir un paso adelante en los temas que me apasionan. Y si me encuentro con algo que desconozco, no me detengo: lo investigo, lo asimilo y <span className="text-neon-green font-semibold">lo aprendo en ese mismo instante</span>. Para mí, herramientas como la IA no son rivales, sino poderosas aliadas que optimizan mi capacidad de análisis y síntesis.
+                Suelo ir un paso adelante en los temas que me apasionan. Si me encuentro con algo que desconozco, no me detengo: lo investigo, lo asimilo y <span className="text-neon-green font-semibold">lo aprendo al instante</span>. Para mí, herramientas como la inteligencia artificial no son rivales, sino aliadas estratégicas que potencian mi capacidad de análisis y síntesis de información.
               </p>
               <p>
-                Tengo la mente llena de ideas, imagino interfaces y soluciones constantemente. Mi meta a largo plazo es grande: <span className="text-neon-cyan font-semibold">crear mi propia empresa y llevar proyectos tecnológicos a niveles inalcanzables</span>. Busco una oportunidad donde pueda demostrar esta visión y seguir creciendo.
+                Con una mente llena de ideas, diseño interfaces y soluciones tecnológicas constantemente. Mi visión a largo plazo es clara: <span className="text-neon-cyan font-semibold">crear mi propia empresa y llevar proyectos tecnológicos a niveles extraordinarios</span>. Busco una oportunidad donde pueda demostrar esta visión y continuar desarrollándome profesionalmente.
               </p>
             </div>
           </motion.div>
@@ -95,7 +95,7 @@ export default function About() {
               <div>
                 <h4 className="text-lg font-mono font-medium text-white mb-1">Ingeniería en Ciberseguridad</h4>
                 <p className="text-sm font-mono text-text-secondary mb-1">SENATI — Arequipa, Perú</p>
-                <p className="text-xs font-mono text-text-muted">2026 — Presente · 4to Semestre</p>
+                <p className="text-xs font-mono text-text-muted">2025 — Presente · 4to Semestre (En curso)</p>
               </div>
               <div className="pt-4 border-t border-white/5">
                 <h4 className="text-sm font-mono font-medium text-white mb-1">Servicio Militar Voluntario</h4>

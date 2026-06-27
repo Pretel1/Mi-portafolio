@@ -7,22 +7,12 @@ import AntiScrapeText from '@/components/common/AntiScrapeText';
 export default function CV() {
   usePageMeta({
     title: 'Curriculum Vitae — Dany Pretel',
-    description: 'Hoja de vida profesional de Dany Jose Pretel Huamanvilca. Estudiante de Ingeniería de Ciberseguridad y Licenciado Militar.',
+    description: 'Hoja de vida profesional de Dany Jose Pretel Huamanvilca. Estudiante de Ingeniería de Ciberseguridad en SENATI, 4to semestre.',
   });
 
   useEffect(() => {
-    // Add class to enable printing for this page specifically
-    document.body.classList.add('allow-print');
     window.scrollTo(0, 0);
-    return () => {
-      // Clean up on unmount to keep security active on other pages
-      document.body.classList.remove('allow-print');
-    };
   }, []);
-
-  const handlePrint = () => {
-    window.print();
-  };
 
   return (
     <motion.div
@@ -43,7 +33,7 @@ export default function CV() {
             </span>
             <div className="font-mono text-xs text-text-secondary">
               <p className="text-white font-bold uppercase tracking-wider font-mono">Vista Previa del CV</p>
-              <p className="text-[10px] text-text-muted mt-0.5 font-mono">Visualiza antes de imprimir o descargar la versión Word</p>
+              <p className="text-[10px] text-text-muted mt-0.5 font-mono">Visualiza y descarga tu currículum actualizado</p>
             </div>
           </div>
           
@@ -51,23 +41,13 @@ export default function CV() {
             <a
               href={`${import.meta.env.BASE_URL}CV_Dany_Pretel.pdf`}
               download="CV_Dany_Pretel.pdf"
-              className="flex items-center gap-2 px-5 py-2.5 border border-neon-cyan/50 text-neon-cyan text-xs font-mono font-bold uppercase tracking-wider rounded hover:bg-neon-cyan/15 hover:shadow-[0_0_20px_rgba(0,242,254,0.2)] transition-all duration-300 cursor-pointer"
+              className="flex items-center gap-2 px-5 py-2.5 bg-neon-cyan text-black text-xs font-mono font-bold uppercase tracking-wider rounded hover:bg-white hover:shadow-[0_0_20px_rgba(0,242,254,0.4)] transition-all duration-300 cursor-pointer"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
               Descargar PDF
             </a>
-            
-            <button
-              onClick={handlePrint}
-              className="flex items-center gap-2 px-5 py-2.5 bg-neon-cyan text-black text-xs font-mono font-bold uppercase tracking-wider rounded hover:bg-white hover:shadow-[0_0_20px_rgba(0,242,254,0.4)] transition-all duration-300 cursor-pointer"
-            >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
-              </svg>
-              Imprimir / PDF
-            </button>
           </div>
         </div>
 
@@ -197,7 +177,7 @@ export default function CV() {
                   <li>Humildad en el aprendizaje</li>
                   <li>Agilidad para adquirir conocimientos</li>
                   <li>Pensamiento estructurado y sintético</li>
-                  <li>Resiliencia y disciplina militar</li>
+                  <li>Resiliencia y disciplina</li>
                   <li>Orientación a la resolución</li>
                 </ul>
               </div>
@@ -212,36 +192,8 @@ export default function CV() {
                   // Perfil Profesional
                 </h3>
                 <p className="text-sm md:text-base font-mono text-text-secondary print:text-black/90 print:text-[11px] leading-relaxed">
-                  Futuro Ingeniero en Ciberseguridad en el 4to semestre de SENATI. Aunque cuento con varias certificaciones, mantengo la humildad de aprender constantemente y aplicar los conocimientos rápido. Suelo ir un paso adelante en los temas que me apasionan, y si desconozco algo, lo aprendo en el instante. Integro la IA como aliada clave para el análisis y síntesis. Mi meta es liderar proyectos tecnológicos extraordinarios y crear mi propia empresa en el sector.
+                  Estudiante de Ingeniería de Ciberseguridad en SENATI, cursando actualmente el 4to semestre (en curso). Aunque cuento con varias certificaciones, mantengo la humildad de aprender de manera continua y aplicar los conocimientos rápidamente. Suelo ir un paso adelante en los temas que me apasionan; si desconozco alguna materia, la investigo y asimilo al instante. Integro la inteligencia artificial como una aliada estratégica para el análisis y la síntesis de información. Mi meta es liderar proyectos tecnológicos extraordinarios y crear mi propia empresa en el sector.
                 </p>
-              </div>
-
-              {/* Experience */}
-              <div>
-                <h3 className="text-xs font-mono uppercase tracking-widest text-neon-cyan print:text-black print:font-bold border-b border-white/10 print:border-black/20 pb-1.5 mb-3">
-                  // Experiencia Laboral
-                </h3>
-                <div className="exp-item">
-                  <h4 className="text-sm font-mono font-bold text-white print:text-black uppercase">
-                    Ejército del Perú
-                  </h4>
-                  <p className="text-xs font-mono text-neon-cyan print:text-black/70 italic mt-0.5">
-                    Cargo: Licenciado del Servicio Militar Voluntario / Instructor Militar | 2020 — 2022
-                  </p>
-                  
-                  <p className="text-xs font-mono text-white print:text-black font-semibold mt-2 mb-1">// Funciones:</p>
-                  <ul className="list-disc pl-4 text-xs font-mono text-text-secondary print:text-black/70 space-y-0.5">
-                    <li>Impartir instrucción militar básica y entrenamiento físico al personal de nuevos contingentes.</li>
-                    <li>Cumplir con los servicios tácticos y operativos de resguardo y seguridad de las instalaciones.</li>
-                    <li>Mantener la disciplina, el orden y el cumplimiento de los reglamentos del servicio militar vigente.</li>
-                  </ul>
-                  
-                  <p className="text-xs font-mono text-white print:text-black font-semibold mt-2 mb-1">// Logros:</p>
-                  <ul className="list-disc pl-4 text-xs font-mono text-text-secondary print:text-black/70 space-y-0.5">
-                    <li>Destacar por disciplina y conducta, obteniendo el licenciamiento y designación como Instructor Militar.</li>
-                    <li>Cumplir satisfactoriamente con el Servicio Militar Voluntario con legajo impecable.</li>
-                  </ul>
-                </div>
               </div>
 
               {/* Education */}
@@ -260,17 +212,49 @@ export default function CV() {
                       </span>
                     </div>
                     <p className="text-xs font-mono text-text-secondary print:text-black/70">
-                      SENATI · Arequipa, Perú — 4to Semestre
+                      SENATI · Arequipa, Perú — 4to Semestre (En curso)
                     </p>
+
+                    {/* Courses by Semester */}
+                    <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-white/5 pt-3 print:border-black/10">
+                      <div>
+                        <p className="text-xs font-bold text-white print:text-black uppercase tracking-wider mb-1.5">2do Semestre:</p>
+                        <ul className="list-disc pl-4 text-[11px] font-mono text-text-secondary print:text-black/75 space-y-0.5">
+                          <li>IT ESSENTIALS (CISCO)</li>
+                          <li>SEGURIDAD E HIGIENE INDUSTRIAL</li>
+                          <li>INGLÉS II</li>
+                          <li>SISTEMAS OPERATIVOS WINDOWS</li>
+                          <li>CCNA 7 M1 ITN-INTRO NETW CISCO</li>
+                          <li>CCNA 7 M2 SRWE-SWIT ROUT WIR E</li>
+                          <li>CYBERSECURITY ESSENTIALS (CISCO)</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <p className="text-xs font-bold text-white print:text-black uppercase tracking-wider mb-1.5">3er Semestre:</p>
+                        <ul className="list-disc pl-4 text-[11px] font-mono text-text-secondary print:text-black/75 space-y-0.5">
+                          <li>FUNDAMENTOS DE DESARROLLO WEB</li>
+                          <li>ALGORITMIA</li>
+                          <li>TÉCNICAS DE LA COMUNICACIÓN</li>
+                          <li>INGLÉS III</li>
+                          <li>INSERCIÓN AL ENTORNO EMPRESARIAL</li>
+                          <li>RED HAT SYSTEM ADMINISTRATION I</li>
+                          <li>CCNA v7 M3 ENSA: ENTERPRISE NETWORKING, SECURITY AND AUTOMATION</li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
-                  <div>
+                  
+                  <div className="pt-4 border-t border-white/5 print:border-black/10">
                     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center">
                       <h4 className="text-sm font-mono font-bold text-white print:text-black">
-                        Licenciamiento del Servicio Militar Voluntario & Especialidad de Instructor
+                        Licenciamiento del Servicio Militar Voluntario y Especialidad de Instructor
                       </h4>
+                      <span className="text-xs font-mono text-neon-green print:text-black/70">
+                        2020 — 2022
+                      </span>
                     </div>
                     <p className="text-xs font-mono text-text-secondary print:text-black/70 mt-1">
-                      Fuerzas Armadas del Perú | UNIDAD: CEMOV_COSTA | FECHA DE ALTA: 01 JUL 2020 — FECHA DE BAJA: 23 JUN 2022 | ARMA: INFANTERÍA
+                      Fuerzas Armadas del Perú | Unidad: CEMOV_COSTA | Periodo: 01 de Julio de 2020 — 23 de Junio de 2022 | Arma: Infantería
                     </p>
                   </div>
                 </div>

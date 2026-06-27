@@ -14,7 +14,6 @@ const CATEGORY_LOGS: Record<string, string> = {
   'Hardware': 'SYS_HW: CPU_TEMP 38C // VOLTAGE STABLE // MEMORY: OK',
   'Habilidades Digitales': 'SYS_DIG: PROTOCOL_SSH // CONNECTION: SECURE',
   'IoT': 'SYS_IOT: PROTOCOL_MQTT // PORT 1883 // FEED: CONNECTED',
-  'Militar y Conducta': 'SYS_MIL: RANK INSTRUCTOR // STATUS CERTIFIED // CODE: 100',
   'default': 'SYS_LOG: BUFFER SAFE // PORTS SECURE // SCANNER ACTIVE',
 };
 
@@ -254,7 +253,7 @@ export default function Certificates() {
           {externalCerts.length > 0 && (
             <div>
               <h2 className="text-xl font-mono text-white mb-6 border-l-4 border-neon-green pl-4">
-                [ Certificaciones Externas & Militares ]
+                [ Certificaciones Externas ]
               </h2>
               {renderGrid(externalCerts)}
             </div>

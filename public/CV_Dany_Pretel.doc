@@ -177,39 +177,48 @@
     <!-- PERFIL PROFESIONAL -->
     <div class="section-title">Perfil Profesional</div>
     <div class="profile-text">
-      Futuro Ingeniero en Ciberseguridad en el 4to semestre de SENATI. Aunque cuento con varias certificaciones, mantengo la humildad de aprender constantemente y aplicar los conocimientos rápido. Suelo ir un paso adelante en los temas que me apasionan, y si desconozco algo, lo aprendo en el instante. Integro la IA como aliada clave para el análisis y síntesis de la información. Mi meta es liderar proyectos tecnológicos extraordinarios y fundar mi propia empresa en el sector.
-    </div>
-
-    <!-- EXPERIENCIA LABORAL -->
-    <div class="section-title">Experiencia Laboral</div>
-
-    <div class="exp-item">
-      <div class="exp-header">EJÉRCITO DEL PERÚ</div>
-      <div class="exp-subheader">Cargo: Licenciado del Servicio Militar Voluntario / Instructor Militar | 2020 — 2022</div>
-      
-      <div class="functions-title">Funciones:</div>
-      <ul class="bullet-list">
-        <li>Impartir instrucción militar básica y entrenamiento físico al personal de nuevos contingentes.</li>
-        <li>Cumplir con los servicios tácticos y operativos de resguardo y seguridad de las instalaciones.</li>
-        <li>Mantener la disciplina, el orden y el cumplimiento de los reglamentos del servicio militar vigente.</li>
-      </ul>
-      
-      <div class="logros-title">Logros:</div>
-      <ul class="bullet-list">
-        <li>Destacar por disciplina y conducta, obteniendo el licenciamiento y designación como Instructor Militar.</li>
-        <li>Cumplir satisfactoriamente con el Servicio Militar Voluntario con legajo impecable.</li>
-      </ul>
+      Estudiante de Ingeniería de Ciberseguridad en SENATI, cursando actualmente el 4to semestre (en curso). Aunque cuento con varias certificaciones, mantengo la humildad de aprender de manera continua y aplicar los conocimientos rápidamente. Suelo ir un paso adelante en los temas que me apasionan; si desconozco alguna materia, la investigo y asimilo al instante. Integro la inteligencia artificial como una aliada estratégica para el análisis y la síntesis de información. Mi meta es liderar proyectos tecnológicos extraordinarios y crear mi propia empresa en el sector.
     </div>
 
     <!-- FORMACION PROFESIONAL -->
     <div class="section-title">Formación Profesional</div>
     <div class="exp-item" style="margin-bottom: 8px;">
       <div class="exp-header">Ingeniería de Ciberseguridad (Carrera Técnica)</div>
-      <div class="exp-subheader">SENATI · Arequipa, Perú | 2025 — Presente (4to Semestre)</div>
+      <div class="exp-subheader">SENATI · Arequipa, Perú | 2025 — Presente (4to Semestre - En curso)</div>
+      
+      <table style="width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 9pt;">
+        <tr>
+          <td style="width: 50%; vertical-align: top; padding-right: 10px;">
+            <div style="font-weight: bold; margin-bottom: 4px; text-transform: uppercase; font-size: 8.5pt;">2do Semestre:</div>
+            <ul style="margin: 0; padding-left: 15px; color: #444444;">
+              <li>IT ESSENTIALS (CISCO)</li>
+              <li>SEGURIDAD E HIGIENE INDUSTRIAL</li>
+              <li>INGLÉS II</li>
+              <li>SISTEMAS OPERATIVOS WINDOWS</li>
+              <li>CCNA 7 M1 ITN-INTRO NETW CISCO</li>
+              <li>CCNA 7 M2 SRWE-SWIT ROUT WIR E</li>
+              <li>CYBERSECURITY ESSENTIALS (CISCO)</li>
+            </ul>
+          </td>
+          <td style="width: 50%; vertical-align: top; padding-left: 10px;">
+            <div style="font-weight: bold; margin-bottom: 4px; text-transform: uppercase; font-size: 8.5pt;">3er Semestre:</div>
+            <ul style="margin: 0; padding-left: 15px; color: #444444;">
+              <li>FUNDAMENTOS DE DESARROLLO WEB</li>
+              <li>ALGORITMIA</li>
+              <li>TÉCNICAS DE LA COMUNICACIÓN</li>
+              <li>INGLÉS III</li>
+              <li>INSERCIÓN AL ENTORNO EMPRESARIAL</li>
+              <li>RED HAT SYSTEM ADMINISTRATION I</li>
+              <li>CCNA v7 M3 ENSA: ENTERPRISE NETWORKING, SECURITY AND AUTOMATION</li>
+            </ul>
+          </td>
+        </tr>
+      </table>
     </div>
+    
     <div class="exp-item" style="margin-bottom: 8px;">
-      <div class="exp-header">Licenciamiento del Servicio Militar Voluntario & Especialidad de Instructor</div>
-      <div class="exp-subheader">Fuerzas Armadas del Perú | UNIDAD: CEMOV_COSTA | FECHA DE ALTA: 01 JUL 2020 — FECHA DE BAJA: 23 JUN 2022 | ARMA: INFANTERÍA</div>
+      <div class="exp-header">Licenciamiento del Servicio Militar Voluntario y Especialidad de Instructor</div>
+      <div class="exp-subheader">Fuerzas Armadas del Perú | Unidad: CEMOV_COSTA | Periodo: 01 de Julio de 2020 — 23 de Junio de 2022 | Arma: Infantería</div>
     </div>
 
     <!-- FORMACION COMPLEMENTARIA -->
@@ -251,11 +260,7 @@
       </tr>
     </table>
 
-    <div class="section-title">Reconocimientos / Voluntariados</div>
-    <ul class="bullet-list" style="margin-bottom: 12px;">
-      <li>Licenciado con Licencia Militar de Primera Clase, Ejército del Perú.</li>
-      <li>Certificación de Especialidad y Desempeño Sobresaliente como Instructor Militar.</li>
-    </ul>
+
 
     <!-- DATOS PERSONALES -->
     <div class="section-title">Datos Personales</div>
